@@ -1,0 +1,181 @@
+sensor-refrigeracao-1  | 2026-09-25T22:48:56.051306390Z 2026-09-25 22:48:56,050 INFO [sensor] sensor 4594d76a9f81 iniciado: 8 máquinas, tópico=dados-sensores, intervalo=1.0s
+sensor-refrigeracao-1  | 2026-09-25T22:48:56.051849468Z 2026-09-25 22:48:56,051 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:48:56.216532805Z %4|1790376536.216|GETPID|4594d76a9f81#producer-1| [thrd:main]: Failed to acquire idempotence PID from broker kafka-3:9092/3: Broker: Coordinator load in progress: retrying
+sensor-refrigeracao-1  | 2026-09-25T22:48:56.744435405Z 2026-09-25 22:48:56,741 INFO [sensor] máquina refrigeracao-4594d7-m3 -> partição 3
+sensor-refrigeracao-1  | 2026-09-25T22:48:56.744484962Z 2026-09-25 22:48:56,741 INFO [sensor] máquina refrigeracao-4594d7-m7 -> partição 3
+sensor-refrigeracao-1  | 2026-09-25T22:48:56.755242281Z 2026-09-25 22:48:56,754 INFO [sensor] máquina refrigeracao-4594d7-m1 -> partição 4
+sensor-refrigeracao-1  | 2026-09-25T22:48:56.769049758Z 2026-09-25 22:48:56,768 INFO [sensor] máquina refrigeracao-4594d7-m4 -> partição 1
+sensor-refrigeracao-1  | 2026-09-25T22:48:56.769753645Z 2026-09-25 22:48:56,769 INFO [sensor] máquina refrigeracao-4594d7-m6 -> partição 1
+sensor-refrigeracao-1  | 2026-09-25T22:48:56.781233228Z 2026-09-25 22:48:56,780 INFO [sensor] máquina refrigeracao-4594d7-m8 -> partição 2
+sensor-refrigeracao-1  | 2026-09-25T22:48:56.797048354Z 2026-09-25 22:48:56,795 INFO [sensor] máquina refrigeracao-4594d7-m2 -> partição 0
+sensor-refrigeracao-1  | 2026-09-25T22:48:56.797099288Z 2026-09-25 22:48:56,796 INFO [sensor] máquina refrigeracao-4594d7-m5 -> partição 0
+sensor-refrigeracao-1  | 2026-09-25T22:48:57.052289855Z 2026-09-25 22:48:57,051 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:49:04.052528772Z 2026-09-25 22:49:04,052 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:49:06.052316265Z 2026-09-25 22:49:06,052 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:49:07.052676267Z 2026-09-25 22:49:07,052 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m3: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:49:11.063507051Z 2026-09-25 22:49:11,052 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:49:12.052829426Z 2026-09-25 22:49:12,052 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:49:15.052993754Z 2026-09-25 22:49:15,052 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:49:16.053088924Z 2026-09-25 22:49:16,052 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:49:17.053031282Z 2026-09-25 22:49:17,052 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:49:18.052883707Z 2026-09-25 22:49:18,052 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:49:27.052975535Z 2026-09-25 22:49:27,052 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 22, 1: 22, 2: 11, 3: 22, 4: 11}
+sensor-refrigeracao-1  | 2026-09-25T22:49:28.052955256Z 2026-09-25 22:49:28,052 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:49:30.052879083Z 2026-09-25 22:49:30,052 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:49:31.053009396Z 2026-09-25 22:49:31,052 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:49:34.053001494Z 2026-09-25 22:49:34,052 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:49:37.053006440Z 2026-09-25 22:49:37,052 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:49:39.053226431Z 2026-09-25 22:49:39,052 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:49:47.053218284Z 2026-09-25 22:49:47,053 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:49:47.053242149Z 2026-09-25 22:49:47,053 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:49:48.053331377Z 2026-09-25 22:49:48,053 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:49:57.053526202Z 2026-09-25 22:49:57,053 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:50:04.054235260Z 2026-09-25 22:50:04,053 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:50:06.053775429Z 2026-09-25 22:50:06,053 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:50:06.053798963Z 2026-09-25 22:50:06,053 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m3: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:50:07.054013477Z 2026-09-25 22:50:07,053 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:50:07.054036968Z 2026-09-25 22:50:07,053 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:50:07.908713827Z %6|1790376607.905|FAIL|4594d76a9f81#producer-1| [thrd:kafka-2:9092/bootstrap]: kafka-2:9092/2: Disconnected (after 71150ms in state UP)
+sensor-refrigeracao-1  | 2026-09-25T22:50:12.053991682Z 2026-09-25 22:50:12,053 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:50:13.054488594Z 2026-09-25 22:50:13,054 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:50:17.054319455Z 2026-09-25 22:50:17,053 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:50:22.054494033Z 2026-09-25 22:50:22,054 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:50:22.054528709Z 2026-09-25 22:50:22,054 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:50:25.054441764Z 2026-09-25 22:50:25,054 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:50:27.054465369Z 2026-09-25 22:50:27,054 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:50:31.054875622Z 2026-09-25 22:50:31,054 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:50:34.054407233Z 2026-09-25 22:50:34,054 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:50:35.055126132Z 2026-09-25 22:50:35,054 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m3: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:50:37.055124401Z 2026-09-25 22:50:37,054 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:50:38.516379779Z %4|1790376638.516|FAIL|4594d76a9f81#producer-1| [thrd:kafka-2:9092/bootstrap]: kafka-2:9092/2: Connection setup timed out in state CONNECT (after 30462ms in state CONNECT)
+sensor-refrigeracao-1  | 2026-09-25T22:50:39.055365177Z 2026-09-25 22:50:39,055 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:50:39.055400719Z 2026-09-25 22:50:39,055 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:50:40.055337815Z 2026-09-25 22:50:40,055 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:50:40.055366435Z 2026-09-25 22:50:40,055 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:50:47.055282459Z 2026-09-25 22:50:47,055 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:50:56.056709028Z 2026-09-25 22:50:56,056 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m3: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:50:56.056744783Z 2026-09-25 22:50:56,056 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:50:57.057507157Z 2026-09-25 22:50:57,056 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:50:57.057537598Z 2026-09-25 22:50:57,056 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:50:58.056844044Z 2026-09-25 22:50:58,056 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m3: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:50:58.056869453Z 2026-09-25 22:50:58,056 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:50:59.057619773Z 2026-09-25 22:50:59,056 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:51:01.056987153Z 2026-09-25 22:51:01,056 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:51:04.056965155Z 2026-09-25 22:51:04,056 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:51:07.057022466Z 2026-09-25 22:51:07,056 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:51:07.057045916Z 2026-09-25 22:51:07,056 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:51:11.057027674Z 2026-09-25 22:51:11,056 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:51:15.057318762Z 2026-09-25 22:51:15,057 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:51:17.057566118Z 2026-09-25 22:51:17,057 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:51:19.013775084Z %6|1790376679.013|FAIL|4594d76a9f81#producer-1| [thrd:kafka-1:9092/bootstrap]: kafka-1:9092/1: Disconnected (after 142284ms in state UP)
+sensor-refrigeracao-1  | 2026-09-25T22:51:21.057345033Z 2026-09-25 22:51:21,057 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:51:25.057435547Z 2026-09-25 22:51:25,057 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:51:25.057464462Z 2026-09-25 22:51:25,057 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:51:28.057690422Z 2026-09-25 22:51:28,057 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 22, 1: 22, 2: 11, 3: 22, 4: 11}
+sensor-refrigeracao-1  | 2026-09-25T22:51:30.057628818Z 2026-09-25 22:51:30,057 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:51:31.057646774Z 2026-09-25 22:51:31,057 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:51:34.057756062Z 2026-09-25 22:51:34,057 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:51:38.057798596Z 2026-09-25 22:51:38,057 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:51:43.057947098Z 2026-09-25 22:51:43,057 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:51:43.057975537Z 2026-09-25 22:51:43,057 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:51:45.058498646Z 2026-09-25 22:51:45,057 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m3: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:51:48.058329554Z 2026-09-25 22:51:48,058 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:51:49.299712001Z %4|1790376709.299|FAIL|4594d76a9f81#producer-1| [thrd:kafka-1:9092/bootstrap]: kafka-1:9092/1: Connection setup timed out in state CONNECT (after 30242ms in state CONNECT)
+sensor-refrigeracao-1  | 2026-09-25T22:51:53.059024578Z 2026-09-25 22:51:53,058 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:51:57.061648041Z 2026-09-25 22:51:57,061 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:51:58.061883269Z 2026-09-25 22:51:58,061 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:52:01.062013870Z 2026-09-25 22:52:01,061 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:52:01.062068164Z 2026-09-25 22:52:01,061 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m3: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:52:08.071075045Z 2026-09-25 22:52:08,070 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:52:13.071100864Z 2026-09-25 22:52:13,070 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:52:13.071136672Z 2026-09-25 22:52:13,070 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:52:16.071478738Z 2026-09-25 22:52:16,071 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:52:18.072209636Z 2026-09-25 22:52:18,071 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:52:18.072232126Z 2026-09-25 22:52:18,072 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:52:19.072258613Z 2026-09-25 22:52:19,072 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:52:22.073343825Z 2026-09-25 22:52:22,072 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:52:23.073337446Z 2026-09-25 22:52:23,073 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:52:26.073427802Z 2026-09-25 22:52:26,073 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:52:28.073826744Z 2026-09-25 22:52:28,073 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:52:30.074716491Z 2026-09-25 22:52:30,074 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:52:31.074712754Z 2026-09-25 22:52:31,074 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:52:31.074747599Z 2026-09-25 22:52:31,074 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:52:34.074625639Z 2026-09-25 22:52:34,074 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:52:38.074865979Z 2026-09-25 22:52:38,074 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:52:39.074907136Z 2026-09-25 22:52:39,074 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:52:48.075528965Z 2026-09-25 22:52:48,075 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:52:58.076464531Z 2026-09-25 22:52:58,076 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:52:59.076389414Z 2026-09-25 22:52:59,076 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:53:00.076436396Z 2026-09-25 22:53:00,076 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:53:01.076465289Z 2026-09-25 22:53:01,076 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m3: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:53:08.076781505Z 2026-09-25 22:53:08,076 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:53:13.076839506Z 2026-09-25 22:53:13,076 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m3: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:53:18.076837161Z 2026-09-25 22:53:18,076 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:53:19.076853254Z 2026-09-25 22:53:19,076 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:53:20.076771816Z 2026-09-25 22:53:20,076 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:53:20.076803187Z 2026-09-25 22:53:20,076 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:53:21.077124153Z 2026-09-25 22:53:21,076 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:53:24.077077644Z 2026-09-25 22:53:24,076 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:53:26.077138077Z 2026-09-25 22:53:26,076 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:53:28.077256646Z 2026-09-25 22:53:28,077 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:53:31.077286437Z 2026-09-25 22:53:31,076 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:53:32.077596554Z 2026-09-25 22:53:32,077 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:53:36.077488035Z 2026-09-25 22:53:36,077 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:53:36.077512933Z 2026-09-25 22:53:36,077 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:53:38.077736860Z 2026-09-25 22:53:38,077 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:53:39.077561430Z 2026-09-25 22:53:39,077 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m3: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:53:41.077528312Z 2026-09-25 22:53:41,077 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:53:43.077724196Z 2026-09-25 22:53:43,077 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:53:48.078145618Z 2026-09-25 22:53:48,077 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:53:50.077839353Z 2026-09-25 22:53:50,077 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:53:56.078808114Z 2026-09-25 22:53:56,078 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:53:58.078896664Z 2026-09-25 22:53:58,078 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:54:08.078938570Z 2026-09-25 22:54:08,078 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:54:14.079092015Z 2026-09-25 22:54:14,078 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:54:18.079306825Z 2026-09-25 22:54:18,079 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:54:18.079339642Z 2026-09-25 22:54:18,079 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:54:25.079093666Z 2026-09-25 22:54:25,078 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:54:29.079214422Z 2026-09-25 22:54:29,078 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 22, 1: 22, 2: 11, 3: 22, 4: 11}
+sensor-refrigeracao-1  | 2026-09-25T22:54:33.079244250Z 2026-09-25 22:54:33,079 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:54:34.079133225Z 2026-09-25 22:54:34,078 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:54:36.079154112Z 2026-09-25 22:54:36,078 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:54:39.079191638Z 2026-09-25 22:54:39,078 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:54:46.079664972Z 2026-09-25 22:54:46,079 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:54:49.079739082Z 2026-09-25 22:54:49,079 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:54:50.079601201Z 2026-09-25 22:54:50,079 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:54:52.079681920Z 2026-09-25 22:54:52,079 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:54:59.080240456Z 2026-09-25 22:54:59,079 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:55:01.080404760Z 2026-09-25 22:55:01,080 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:55:03.080706967Z 2026-09-25 22:55:03,080 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:55:05.080750673Z 2026-09-25 22:55:05,080 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:55:09.081019537Z 2026-09-25 22:55:09,080 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:55:19.081050280Z 2026-09-25 22:55:19,080 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:55:19.081083289Z 2026-09-25 22:55:19,080 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:55:27.081566171Z 2026-09-25 22:55:27,081 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:55:29.082054159Z 2026-09-25 22:55:29,081 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:55:30.082002477Z 2026-09-25 22:55:30,081 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:55:36.082067005Z 2026-09-25 22:55:36,081 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:55:39.082167768Z 2026-09-25 22:55:39,081 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:55:42.082217669Z 2026-09-25 22:55:42,081 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:55:43.082302415Z 2026-09-25 22:55:43,082 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:55:44.082217599Z 2026-09-25 22:55:44,081 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:55:49.082267881Z 2026-09-25 22:55:49,082 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:55:53.082416737Z 2026-09-25 22:55:53,082 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m2: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:55:56.082169513Z 2026-09-25 22:55:56,081 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:55:59.082593733Z 2026-09-25 22:55:59,082 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:56:09.084995936Z 2026-09-25 22:56:09,084 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:56:16.085050049Z 2026-09-25 22:56:16,084 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:56:17.085361000Z 2026-09-25 22:56:17,085 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:56:17.085397009Z 2026-09-25 22:56:17,085 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m7: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:56:19.085356909Z 2026-09-25 22:56:19,085 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:56:28.085455645Z 2026-09-25 22:56:28,085 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m3: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:56:29.085418117Z 2026-09-25 22:56:29,085 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:56:32.085363647Z 2026-09-25 22:56:32,085 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:56:35.085809199Z 2026-09-25 22:56:35,085 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m5: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:56:39.086295179Z 2026-09-25 22:56:39,086 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m8: vibracao_mm_s
+sensor-refrigeracao-1  | 2026-09-25T22:56:39.086323227Z 2026-09-25 22:56:39,086 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:56:41.086752055Z 2026-09-25 22:56:41,086 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m6: temperatura_c
+sensor-refrigeracao-1  | 2026-09-25T22:56:49.086906409Z 2026-09-25 22:56:49,086 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:56:59.087552995Z 2026-09-25 22:56:59,087 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25T22:57:00.087413916Z 2026-09-25 22:57:00,087 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m1: energia_kw
+sensor-refrigeracao-1  | 2026-09-25T22:57:02.087477249Z 2026-09-25 22:57:02,087 INFO [sensor] anomalia simulada em refrigeracao-4594d7-m4: vibracao_mm_s

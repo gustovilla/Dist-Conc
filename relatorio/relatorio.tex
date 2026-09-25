@@ -1,0 +1,788 @@
+% =====================================================================
+% Relatório do Trabalho 1 — INF1304 Distribuição e Concorrência
+% Compilar: pdflatex relatorio.tex  (duas vezes, para o sumário)
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,arrows.meta,backgrounds}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Estilo ----------
+\definecolor{codigo}{RGB}{245,245,245}
+\definecolor{borda}{RGB}{200,200,200}
+\definecolor{azul}{RGB}{31,78,121}
+\definecolor{verde}{RGB}{56,118,29}
+\definecolor{laranja}{RGB}{191,96,0}
+
+\setlist{itemsep=2pt,topsep=4pt}
+\renewcommand{\arraystretch}{1.25}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\captionsetup{font=small,labelfont=bf}
+
+% Trecho de código/identificador em linha (aceita _ e outros símbolos)
+\newcommand{\cod}[1]{\texttt{\detokenize{#1}}}
+% Caminho diretório/arquivo com ponto de quebra de linha após a barra
+\newcommand{\arq}[2]{\cod{#1}\allowbreak\cod{#2}}
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{codigo},
+  frame=single, rulecolor=\color{borda},
+  breaklines=true, breakatwhitespace=false,
+  columns=fullflexible, keepspaces=true,
+  showstringspaces=false,
+  xleftmargin=4pt, xrightmargin=4pt,
+  aboveskip=8pt, belowskip=8pt,
+  literate=
+    {á}{{\'a}}1 {à}{{\`a}}1 {â}{{\^a}}1 {ã}{{\~a}}1
+    {é}{{\'e}}1 {ê}{{\^e}}1 {í}{{\'i}}1
+    {ó}{{\'o}}1 {ô}{{\^o}}1 {õ}{{\~o}}1 {ú}{{\'u}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {É}{{\'E}}1 {Ó}{{\'O}}1
+    {Á}{{\'A}}1 {Ã}{{\~A}}1 {Â}{{\^A}}1 {Ê}{{\^E}}1 {Í}{{\'I}}1
+    {Õ}{{\~O}}1 {Ú}{{\'U}}1
+    {°}{{$^\circ$}}1 {×}{{$\times$}}1 {→}{{$\rightarrow$}}1
+}
+
+% =====================================================================
+\begin{document}
+
+% ---------- Capa ----------
+\begin{titlepage}
+  \centering
+  {\large Pontifícia Universidade Católica do Rio de Janeiro\par}
+  {\large Departamento de Informática\par}
+  \vspace{0.5cm}
+  {\large INF1304 --- Distribuição e Concorrência\par}
+  \vspace{3cm}
+  {\LARGE\bfseries Balanceamento de Carga, Elasticidade e Failover\\[4pt]
+   com Kafka em Clusters Docker\par}
+  \vspace{0.8cm}
+  {\Large Sistema de Monitoramento de Sensores\\ em uma Fábrica Inteligente\par}
+  \vspace{0.8cm}
+  {\large Trabalho 1 --- Relatório\par}
+  \vfill
+  % Completar com nome completo e matrícula de cada integrante
+  {\large Pedro \\ Enzo\par}
+  \vspace{1cm}
+  {\large Professor: Alexandre Meslin\par}
+  \vspace{0.5cm}
+  {\large Rio de Janeiro, setembro de 2026\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% =====================================================================
+\section{Introdução}
+
+Uma fábrica inteligente possui máquinas em diferentes setores (linha de
+produção, refrigeração, empacotamento), cada uma equipada com sensores de
+temperatura, vibração e consumo de energia. As leituras são enviadas
+continuamente a um sistema central, que as processa em tempo real para
+detectar anomalias.
+
+O sistema deve:
+\begin{itemize}
+  \item ser \textbf{tolerante a falhas}: não parar quando uma parte cai;
+  \item \textbf{escalar} com facilidade conforme o número de sensores aumenta;
+  \item \textbf{balancear a carga} de forma eficiente entre os processadores de dados.
+\end{itemize}
+
+A solução usa um cluster \textbf{Apache Kafka} de três brokers,
+orquestrado com \textbf{Docker Compose}. Sensores simulados (produtores)
+publicam leituras em um tópico particionado e replicado. Um grupo de
+processadores (consumidores) divide as partições entre si, detecta
+anomalias e grava as leituras e os alertas em um banco \textbf{SQLite}.
+Produtores e consumidores foram escritos em \textbf{Python}, com a
+biblioteca \cod{confluent-kafka}.
+
+% =====================================================================
+\section{O que foi implementado}
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{7.4cm}>{\raggedright\arraybackslash}p{3.4cm}}
+\toprule
+\textbf{Objetivo do enunciado} & \textbf{Implementação} & \textbf{Onde} \\
+\midrule
+\endhead
+Cluster Kafka com múltiplos brokers; tópico com partições e replicação &
+3 brokers \cod{apache/kafka} em modo KRaft (cada um é broker e controller).
+Tópico \cod{dados-sensores} com 6 partições, fator de replicação 3 e
+\cod{min.insync.replicas=2}, criado pelo serviço \cod{kafka-init}. &
+\cod{docker-compose.yaml} \\
+Sensores como produtores em containers distintos &
+3 serviços (produção, refrigeração, empacotamento). Cada container simula
+8 máquinas e publica JSON com temperatura, vibração e energia. Os serviços
+podem ser escalados. & \cod{sensor/} \\
+Múltiplos consumidores com balanceamento automático &
+Serviço \cod{processador} com $N$ réplicas no mesmo grupo de consumo.
+Detecta anomalias e grava em SQLite. & \cod{processador/} \\
+Falha de broker & \cod{make falha-broker} & \arq{scripts/}{falha_broker.sh} \\
+Falha de consumidor e rebalanço & \cod{make falha-consumidor} & \arq{scripts/}{falha_consumidor.sh} \\
+Elasticidade & \cod{make escala-processadores N=...}, \cod{make escala-sensores N=...} & \arq{scripts/}{escala.sh} \\
+Demonstração via logs &
+Linhas \cod{REBALANCO}, \cod{ESTATISTICA} e \cod{ALERTA}; tabela
+\cod{eventos_grupo}; \cod{make status}; \cod{make demo} & \cod{logs/} \\
+Banco de dados / logger &
+SQLite em volume compartilhado, com as tabelas \cod{leituras}, \cod{alertas}
+e \cod{eventos_grupo} & \arq{processador/}{armazenamento.py} \\
+Sem constantes no código &
+Toda a configuração em \cod{.env}, repassada como variáveis de ambiente
+pelo YAML & \cod{.env} \\
+Documentação do código &
+Docstrings (estilo Google) em todos os módulos, classes e funções & \cod{*.py} \\
+Makefile &
+Atalhos para subir, observar, simular falhas, escalar e gerar evidências & \cod{Makefile} \\
+\bottomrule
+\end{longtable}
+}
+
+% =====================================================================
+\section{Arquitetura}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  caixa/.style={draw, rounded corners=2pt, minimum width=2.9cm, minimum height=0.75cm, align=center},
+  sensor/.style={caixa, fill=verde!12},
+  broker/.style={caixa, fill=azul!12, minimum width=2.4cm},
+  proc/.style={caixa, fill=laranja!12, minimum width=2.4cm},
+  seta/.style={-{Stealth[length=2.2mm]}, thick},
+  node distance=0.35cm
+]
+  % Sensores
+  \node[sensor] (s1) {sensor-producao};
+  \node[sensor, below=of s1] (s2) {sensor-refrigeracao};
+  \node[sensor, below=of s2] (s3) {sensor-empacotamento};
+
+  % Kafka
+  \node[broker, right=2.3cm of s1] (k1) {kafka-1};
+  \node[broker, below=of k1] (k2) {kafka-2};
+  \node[broker, below=of k2] (k3) {kafka-3};
+  \begin{scope}[on background layer]
+    \node[draw=azul, dashed, rounded corners, fit=(k1)(k2)(k3), inner sep=8pt,
+          label={[align=center,font=\footnotesize]above:{Cluster Kafka (KRaft)\\ \texttt{dados-sensores}, 6 partições $\times$ 3 réplicas}}] (cluster) {};
+  \end{scope}
+
+  % Processadores
+  \node[proc, right=2.3cm of k1] (p1) {processador-1};
+  \node[proc, below=of p1] (p2) {processador-2};
+  \node[proc, below=of p2] (p3) {processador-3};
+  \begin{scope}[on background layer]
+    \node[draw=laranja, dashed, rounded corners, fit=(p1)(p2)(p3), inner sep=8pt,
+          label={[font=\footnotesize]above:{grupo \texttt{processadores}}}] (grupo) {};
+  \end{scope}
+
+  % Banco
+  \node[caixa, fill=gray!12, below=0.9cm of p3, minimum width=3.4cm] (db) {SQLite\\ \footnotesize volume \texttt{dados-db}};
+
+  % Setas
+  \foreach \s in {s1,s2,s3} \draw[seta] (\s.east) -- (cluster.west |- \s.east);
+  \foreach \p in {p1,p2,p3} \draw[seta] (cluster.east |- \p.west) -- (\p.west);
+  \draw[seta] (grupo.south) -- (db.north);
+
+  \node[font=\footnotesize, align=center, above=0.05cm of s1] {produtores\\ chave = id da máquina};
+  \node[font=\footnotesize, align=center, below=0.2cm of s3] {\texttt{acks=all}};
+\end{tikzpicture}
+\caption{Arquitetura do sistema. Todos os containers estão em uma rede Docker
+interna (\texttt{internal: true}); nenhuma porta é exposta ao host.}
+\label{fig:arquitetura}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\caption{Componentes.}
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{3.8cm}L}
+\toprule
+\textbf{Componente} & \textbf{Imagem / código} & \textbf{Papel} \\
+\midrule
+\cod{kafka-1..3} & \cod{apache/kafka:4.0.0} & Brokers e controllers. Cada um tem seu próprio volume de dados. \\
+\cod{kafka-init} & \cod{apache/kafka:4.0.0} & Cria o tópico com as partições, a replicação e o \cod{min.insync.replicas} definidos e depois termina. \\
+\cod{sensor-*} & \arq{sensor/}{sensor.py} & Produtores. Cada container simula \cod{SENSOR_MAQUINAS} máquinas de um setor. \\
+\cod{processador} & \arq{processador/}{processador.py} & Consumidores do grupo \cod{processadores}. Detectam anomalias e gravam no SQLite. \\
+banco & \arq{processador/}{armazenamento.py} & Tabelas \cod{leituras}, \cod{alertas} e \cod{eventos_grupo}. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Fluxo de uma leitura}
+
+\begin{enumerate}
+  \item O sensor gera a leitura de uma máquina e chama
+        \cod{produce(topico, key=maquina_id, value=json)}.
+  \item O cliente Kafka calcula a partição a partir do hash da chave
+        ($\mathrm{murmur2}(\mathit{maquina\_id}) \bmod 6$). A mesma máquina
+        cai sempre na mesma partição, o que preserva a ordem das leituras dela.
+  \item O líder da partição grava a mensagem e espera as réplicas em
+        sincronia (\cod{acks=all}). Com \cod{min.insync.replicas=2}, a
+        escrita é confirmada quando pelo menos 2 dos 3 brokers têm a mensagem.
+  \item O processador dono daquela partição recebe a mensagem em \cod{poll()},
+        compara as métricas com os limites, grava a leitura (e os alertas) no
+        SQLite e só então marca o offset com \cod{store_offsets()}. A
+        biblioteca confirma os offsets marcados periodicamente.
+\end{enumerate}
+
+Exemplo de mensagem publicada:
+\begin{lstlisting}
+{"maquina_id": "producao-588251-m3", "setor": "producao", "seq": 200,
+ "timestamp": "2026-09-25T22:29:39.178+00:00", "temperatura_c": 96.82,
+ "vibracao_mm_s": 3.36, "energia_kw": 27.75, "anomalia_injetada": "temperatura_c"}
+\end{lstlisting}
+
+\subsection{Como cada requisito é atendido}
+
+\begin{description}[style=nextline, leftmargin=0.5cm]
+  \item[Balanceamento de carga] O tópico tem 6 partições e a chave espalha
+    as máquinas entre elas. Os processadores estão no mesmo
+    \emph{consumer group}, e o coordenador do grupo entrega cada partição a
+    um único membro.
+  \item[Tolerância à falha de broker] Com replicação 3 e
+    \cod{min.insync.replicas=2}, se um broker cai as partições das quais ele
+    era líder elegem um novo líder entre as réplicas em sincronia. Os
+    produtores continuam gravando com 2 réplicas. O quórum KRaft de 3
+    controllers tolera a perda de 1 nó.
+  \item[Tolerância à falha de consumidor] Um processador que fica
+    \cod{SESSION_TIMEOUT_MS} sem enviar heartbeats é removido do grupo. O
+    coordenador faz um \textbf{rebalanço} e as partições dele passam para
+    os outros membros, que continuam do último offset confirmado.
+  \item[Sem perda nem duplicação] O offset só é marcado depois da gravação
+    no banco (entrega \emph{pelo menos uma vez}). A chave primária
+    \cod{(topico, particao, offset_kafka)} faz o \cod{INSERT OR IGNORE}
+    descartar mensagens reentregues após um rebalanço, e o banco fica com
+    \emph{exatamente uma} cópia de cada leitura.
+  \item[Elasticidade] \cod{docker compose up --scale processador=N} adiciona
+    ou remove membros do grupo sem parar os demais. Com mais processadores
+    que partições, os excedentes ficam ociosos, porque o paralelismo máximo
+    é igual ao número de partições.
+\end{description}
+
+\subsection{Decisões de projeto}
+
+\begin{itemize}
+  \item \textbf{KRaft em vez de Zookeeper:} o Zookeeper foi removido do
+    Kafka 4.0. Cada nó é broker e controller.
+  \item \textbf{Um volume por broker:} cada broker precisa do seu diretório
+    de dados. Compartilhar um único volume corromperia os logs e os
+    metadados do cluster.
+  \item \textbf{Replicação 3 com \texttt{min.insync.replicas} 2:} com um
+    broker fora, as escritas continuam. Com dois fora, os produtores passam
+    a receber erro (\cod{NOT_ENOUGH_REPLICAS}), porque o sistema prefere
+    recusar escritas a arriscar perder dados.
+  \item \textbf{6 partições:} é o limite de paralelismo do grupo. Como 6 é
+    divisível por 1, 2, 3 e 6, a divisão fica visivelmente equilibrada nas
+    demonstrações.
+  \item \textbf{Estratégia \texttt{cooperative-sticky}:} no rebalanço, só as
+    partições que precisam mudar de dono são movidas. Os outros processadores
+    não param, ao contrário da estratégia \cod{range}, que revoga todas as
+    partições de todos os membros.
+  \item \textbf{SQLite compartilhado:} vários containers escrevem no mesmo
+    arquivo, em modo WAL e com \cod{timeout} de espera pelo lock. É adequado
+    ao volume do trabalho (dezenas de mensagens por segundo). Em produção
+    seria usado um banco servidor.
+  \item \textbf{Particionador \texttt{murmur2\_random}:} é o mesmo algoritmo
+    do cliente Java do Kafka. O padrão da \cod{librdkafka} (CRC32) é linear
+    e, com chaves parecidas, concentrou todas as máquinas nas partições 0 e 2
+    (Seção~\ref{sec:funcionou}).
+  \item \textbf{\texttt{broker.session.timeout.ms} = 4\,s (padrão 9\,s):} é o
+    tempo que o controller leva para declarar um broker morto e retirá-lo do
+    ISR. Enquanto o broker morto está no ISR, as escritas com \cod{acks=all}
+    esperam por ele. Com 9\,s, essa espera se aproximava do
+    \cod{session.timeout.ms} de 10\,s dos processadores e provocava rebalanços
+    desnecessários (Seção~\ref{sec:funcionou}).
+\end{itemize}
+
+\subsection{Concorrência}
+
+\begin{itemize}
+  \item \textbf{Sensores:} o callback de entrega (\cod{ao_entregar}) roda
+    dentro de \cod{producer.poll()}, na mesma thread do laço principal. Por
+    isso os contadores não precisam de lock. O envio pela rede é feito por
+    threads internas da \cod{librdkafka}.
+  \item \textbf{Processadores:} cada réplica é um processo independente. A
+    concorrência entre elas é resolvida pelo Kafka, que garante uma partição
+    por consumidor, e pelo SQLite (lock de escrita + WAL). Os callbacks de
+    rebalanço também rodam dentro de \cod{consumer.poll()}.
+  \item \textbf{Encerramento:} \cod{SIGTERM} (\cod{docker stop} ou escala
+    para baixo) muda uma flag. O laço termina e \cod{consumer.close()}
+    confirma os offsets e sai do grupo de forma ordenada, o que dispara um
+    rebalanço imediato.
+\end{itemize}
+
+% =====================================================================
+\section{Instalação e uso}
+
+\subsection{Requisitos}
+
+\begin{itemize}
+  \item Linux, ou Windows com \textbf{WSL 2} (Ubuntu). Todos os comandos
+        abaixo são executados no terminal Linux.
+  \item Docker Engine com o plugin Compose v2, \cod{make} e \cod{bash}.
+  \item Cerca de 4\,GB de RAM livres (3 brokers com até 1,2\,GB cada).
+\end{itemize}
+
+\subsection{Instalação do Docker (Ubuntu/WSL)}
+
+\begin{lstlisting}[language=bash]
+sudo apt-get update
+sudo apt-get install -y docker.io docker-compose-v2 make
+sudo usermod -aG docker $USER      # usar docker sem sudo
+\end{lstlisting}
+
+Feche e reabra o terminal (no WSL, execute \cod{wsl --shutdown} no
+PowerShell e abra o Ubuntu de novo). Em seguida, teste a instalação:
+
+\begin{lstlisting}[language=bash]
+docker run --rm hello-world
+docker compose version
+\end{lstlisting}
+
+\subsection{Obtenção do projeto}
+
+\begin{lstlisting}[language=bash]
+git clone https://github.com/enzofarina/INF1304---Pedro-e-Enzo.git
+cd INF1304---Pedro-e-Enzo
+\end{lstlisting}
+
+\subsection{Operação}
+
+O comando \cod{make} sem argumentos lista todos os comandos disponíveis.
+
+\begin{lstlisting}[language=bash]
+make up                  # constrói as imagens e sobe tudo (~1 min na 1a vez)
+make status              # containers, líderes/ISR do tópico, partições por processador
+make logs-processadores  # acompanha os processadores (Ctrl+C para sair)
+make consultar           # relatório do banco: carga por processador, rebalanços, alertas
+
+make falha-broker                     # derruba um broker que NÃO é o controller
+make falha-broker BROKER=controller   # derruba o controller do quórum KRaft
+make recupera-broker                  # religa os brokers parados
+make falha-consumidor                 # SIGKILL em um processador
+make falha-consumidor MODO=stop       # saída ordenada (rebalanço imediato)
+
+make escala-processadores N=6         # elasticidade dos consumidores
+make escala-sensores N=3              # aumento de carga (3 containers por setor)
+
+make demo          # roteiro completo de testes -> logs/demo-<data>.log
+make salvar-logs   # logs completos de cada serviço -> logs/completo-<data>/
+make down          # para os containers (dados preservados)
+make limpar        # para tudo e apaga os volumes
+\end{lstlisting}
+
+As linhas mais importantes dos logs estão na Tabela~\ref{tab:logs}. O
+identificador de cada processador é o hostname do seu container, o mesmo
+valor que aparece na coluna \cod{CLIENT-ID} de \cod{make status}.
+
+\begin{table}[ht]
+\centering
+\caption{Linhas de log usadas como evidência.}
+\label{tab:logs}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{7.2cm}L}
+\toprule
+\textbf{Linha} & \textbf{Significado} \\
+\midrule
+\texttt{REBALANCO processador=<id> partições atribuidas: [2, 3] -> responsável por [2, 3]} &
+O processador recebeu (\cod{atribuidas}), devolveu (\cod{revogadas}) ou
+perdeu (\cod{perdidas}) partições. \\
+\texttt{ESTATISTICA processador=<id> partições=[2, 3] processadas=60 (6.0 msg/s) ...} &
+Carga tratada nos últimos \cod{INTERVALO_ESTATISTICAS_S} segundos. \\
+\cod{ALERTA maquina=... temperatura_c=97.31 > limite 85.00 ...} & Anomalia detectada. \\
+\cod{ESTATISTICA sensor=<id> entregues=80 ... falhas=0 por_particao={...}} &
+Leituras publicadas por um container de sensor e falhas de entrega. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Configuração}
+
+Todos os parâmetros ficam no arquivo \cod{.env}. Os principais estão na
+Tabela~\ref{tab:config}. Os valores base de cada setor (temperatura,
+vibração e energia) estão no próprio \cod{docker-compose.yaml}, nos serviços
+\cod{sensor-*}.
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{6cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{6cm}}
+\caption{Principais parâmetros de configuração.}\label{tab:config}\\
+\toprule
+\textbf{Variável} & \textbf{Valor} & \textbf{Efeito} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Variável} & \textbf{Valor} & \textbf{Efeito} \\
+\midrule
+\endhead
+\cod{TOPICO_PARTICOES} & 6 & Paralelismo máximo do grupo de processadores \\
+\cod{TOPICO_REPLICACAO} / \cod{TOPICO_MIN_ISR} & 3 / 2 & Cópias de cada partição e mínimo de cópias para aceitar uma escrita \\
+\cod{PROCESSADOR_REPLICAS} & 3 & Processadores iniciais \\
+\cod{SENSOR_MAQUINAS}, \cod{SENSOR_INTERVALO_S} & 8, 1.0 & Carga por container de sensor (8 leituras/s) \\
+\cod{SENSOR_PARTICIONADOR} & \cod{murmur2_} \cod{random} & Função de hash chave $\rightarrow$ partição \\
+\cod{SENSOR_PROB_ANOMALIA} & 0.03 & Frequência das anomalias simuladas \\
+\cod{LIMITE_TEMPERATURA_C}, \cod{LIMITE_VIBRACAO_MM_S}, \cod{LIMITE_ENERGIA_KW} & 85, 7.1, 45 & Limites de alerta \\
+\cod{ESTRATEGIA_ATRIBUICAO} & \cod{cooperative-} \cod{sticky} & Distribuição de partições no grupo \\
+\cod{SESSION_TIMEOUT_MS} & 10000 & Tempo até um processador silencioso ser considerado morto \\
+\cod{KAFKA_BROKER_SESSION_TIMEOUT_MS} & 4000 & Tempo até o controller considerar um broker morto e tirá-lo do ISR \\
+\cod{ESPERA_REACAO_S} & 20 & Espera dos scripts após cada falha ou escala \\
+\bottomrule
+\end{longtable}
+}
+
+\subsection{Estrutura do projeto}
+
+\begin{lstlisting}
+.
+|-- .env                    # toda a configuração
+|-- docker-compose.yaml     # brokers, criação do tópico, sensores, processadores
+|-- Makefile                # atalhos de operação
+|-- sensor/                 # produtor (sensor.py, Dockerfile, requirements.txt)
+|-- processador/            # consumidor, persistência SQLite e relatório
+|-- scripts/                # falhas, escala, status, demo, salvar logs
+|-- logs/                   # evidências geradas por make demo / make salvar-logs
+|-- relatorio/              # este relatório (LaTeX)
+`-- README.md
+\end{lstlisting}
+
+\subsection{Problemas comuns}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{10cm}}
+\toprule
+\textbf{Sintoma} & \textbf{Causa provável e solução} \\
+\midrule
+\endhead
+Todos os containers aparecem como \cod{Exited (255)} &
+O WSL desliga a máquina virtual quando nenhum terminal do Ubuntu fica
+aberto, e o Docker cai junto. Mantenha um terminal aberto e rode
+\cod{make up} de novo (os dados ficam preservados nos volumes). \\
+\cod{permission denied ... docker.sock} &
+O usuário não está no grupo \cod{docker}: rode
+\cod{sudo usermod -aG docker $USER} e reabra o terminal. \\
+\cod{kafka-init} termina com erro &
+Algum broker não subiu. Veja \cod{docker compose logs kafka-1} e, se
+necessário, rode \cod{make limpar && make up}. \\
+Broker reiniciando por falta de memória &
+Reduza \cod{KAFKA_HEAP_OPTS} no \cod{.env} ou aumente a memória do WSL. \\
+\bottomrule
+\end{longtable}
+
+% =====================================================================
+\section{Testes de falha e elasticidade}
+\label{sec:testes}
+
+Todos os testes podem ser reproduzidos individualmente (\cod{make falha-broker}
+etc.) ou em sequência com \cod{make demo}. Os resultados abaixo vêm da
+execução registrada em \cod{logs/demo-20260925-194937.log}: uma rodada limpa
+(\cod{make limpar && make up && make demo}) com 3 brokers, 3 containers de
+sensor (8 máquinas cada, 24 leituras/s no total) e 3 processadores.
+
+\subsection{Falha de broker}
+
+\paragraph{Procedimento.} \cod{make falha-broker} executa
+\cod{docker compose kill} (queda abrupta, SIGKILL) em um broker. O parâmetro
+\cod{BROKER} aceita \cod{nao-controller} (padrão), \cod{controller} (o líder
+do quórum KRaft, caso mais severo) ou o nome de um broker.
+
+\paragraph{Esperado.} As partições lideradas pelo broker morto ganham um novo
+líder, o ISR cai de 3 para 2 réplicas e o sistema continua sem perder
+mensagens.
+
+\paragraph{Resultado (a): broker comum.} Foi derrubado o \cod{kafka-2}; o
+controller estava no \cod{kafka-1}.
+
+\begin{lstlisting}
+Antes:  Partition: 0  Leader: 2  Replicas: 2,3,1  Isr: 2,3,1
+        Partition: 5  Leader: 2  Replicas: 2,3,1  Isr: 2,3,1
+Depois: Partition: 0  Leader: 3  Replicas: 2,3,1  Isr: 3,1
+        Partition: 5  Leader: 3  Replicas: 2,3,1  Isr: 3,1
+\end{lstlisting}
+
+\begin{itemize}
+  \item As partições 0 e 5, lideradas pelo \cod{kafka-2}, passaram para o
+        \cod{kafka-3}. Todas as partições ficaram com ISR de 2 réplicas.
+  \item Os sensores seguiram a 8,0\,msg/s cada, sempre com \cod{falhas=0}.
+  \item Os processadores mantiveram as mesmas partições e a mesma taxa.
+        \textbf{Não houve rebalanço.}
+\end{itemize}
+
+\paragraph{Resultado (b): broker controller.} Foi derrubado o \cod{kafka-1},
+que era o controller ativo.
+\begin{itemize}
+  \item O quórum elegeu o \cod{kafka-3} como novo controller.
+  \item As partições 2 e 4, lideradas pelo \cod{kafka-1}, passaram para o
+        \cod{kafka-2}.
+  \item Os sensores continuaram com \cod{falhas=0}. Um deles registrou
+        10,8\,msg/s no período seguinte: as mensagens retidas durante a
+        eleição foram entregues de uma vez.
+  \item \textbf{Não houve rebalanço} do grupo de processadores.
+\end{itemize}
+
+\paragraph{Recuperação.} \cod{make recupera-broker} religa o broker. Em menos
+de 20\,s ele voltou ao ISR de todas as partições (\cod{Isr: 3,2,1}). A
+liderança não volta imediatamente ao broker ``preferido'': o Kafka só faz
+isso na verificação periódica de desequilíbrio de líderes.
+
+\subsection{Falha de consumidor e rebalanço}
+
+\paragraph{Procedimento.} \cod{make falha-consumidor} executa
+\cod{docker kill} (SIGKILL) em um processador. Com \cod{MODO=stop}
+(SIGTERM) a saída é ordenada e o rebalanço é imediato.
+
+\paragraph{Esperado.} Durante até \cod{SESSION_TIMEOUT_MS} (10\,s), as
+partições do processador morto ficam sem consumo e o seu atraso (LAG) cresce.
+O coordenador então remove o membro e os sobreviventes assumem as partições.
+As leituras reentregues são descartadas pelo banco.
+
+\paragraph{Resultado.} O \cod{fabrica-processador-1} (id \cod{3b4721499e1b}),
+responsável pelas partições 0 e 2, foi morto às 22:52:32.
+
+\begin{lstlisting}
+22:52:44 REBALANCO processador=03ebfdfe1e89 partições atribuidas: [2] -> responsável por [1, 2, 3]
+22:52:44 REBALANCO processador=2ff87803d62b partições atribuidas: [0] -> responsável por [0, 4, 5]
+22:52:51 ESTATISTICA processador=2ff87803d62b partições=[0, 4, 5] processadas=152 ... duplicadas=9
+22:52:51 ESTATISTICA processador=03ebfdfe1e89 partições=[1, 2, 3] processadas=196 ... duplicadas=14
+\end{lstlisting}
+
+\begin{itemize}
+  \item O coordenador detectou a queda \textbf{12\,s depois do kill}: o
+        \cod{session.timeout.ms} de 10\,s mais o ciclo de heartbeat.
+  \item Com \cod{cooperative-sticky}, só as partições órfãs (0 e 2) mudaram
+        de dono. Os demais processadores mantiveram as suas.
+  \item As 23 leituras que o processador morto já havia gravado, mas cujo
+        offset ainda não tinha sido confirmado, foram reentregues e
+        \textbf{descartadas pelo banco} (\cod{duplicadas=9} e
+        \cod{duplicadas=14}).
+  \item O atraso acumulado foi consumido em seguida, com os processadores
+        trabalhando a 15--20\,msg/s em vez de 7--10.
+\end{itemize}
+
+\subsection{Elasticidade}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{11.7cm}}
+\caption{Elasticidade: comportamento observado a cada mudança de escala.}\\
+\toprule
+\textbf{Passo} & \textbf{O que os logs mostraram} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Passo} & \textbf{O que os logs mostraram} \\
+\midrule
+\endhead
+3 $\rightarrow$ 6 processadores &
+Três containers entraram e o grupo se reorganizou em rodadas incrementais
+(22:52:56, 22:52:59 e 22:53:02). Ao final, cada processador ficou com
+exatamente 1 partição, sem nenhum processador parar por completo. \\
+6 $\rightarrow$ 8 processadores &
+Os dois novos membros receberam \texttt{atribuidas: [] -> responsável por []}
+e registraram \cod{processadas=0}: ficaram \textbf{ociosos}, porque o
+paralelismo máximo é igual ao número de partições (6). \\
+8 $\rightarrow$ 2 processadores &
+Os 6 containers removidos receberam SIGTERM e saíram do grupo de forma
+ordenada (\cod{revogadas: [4] -> []}). Os 2 restantes assumiram 3 partições
+cada (\cod{[0, 1, 4]} e \cod{[2, 3, 5]}) em menos de 10\,s. \\
+Sensores 1 $\rightarrow$ 3 por setor &
+A carga subiu de cerca de 12 para \textbf{cerca de 36\,msg/s por
+processador}. O LAG subiu momentaneamente para 40--60 mensagens por
+partição e foi absorvido: na etapa seguinte havia voltado para perto de zero. \\
+\bottomrule
+\end{longtable}
+
+\paragraph{Relatório do banco ao final da demonstração} (\cod{make consultar}):
+
+\begin{lstlisting}
+processador   leituras  particoes
+2ff87803d62b  2055      5,3,0,4,1,2   <- inicial; removido na redução para 2
+3b4721499e1b  3381      0,2,1,4       <- inicial; morto e religado pela escala
+03ebfdfe1e89  3173      1,3,2,5       <- inicial
+5d5e5f56bd76  189       0             <- criado na escala para 6
+96f00a0bfaf1  177       4             <- criado na escala para 6
+f1d14369fdfd  265       2             <- criado na escala para 6
+
+Anomalias: leituras=9240  simuladas=287  leituras_com_alerta=264
+\end{lstlisting}
+
+\subsection{Verificação de integridade}
+
+Depois da demonstração, o banco foi consultado para verificar se alguma
+mensagem se perdeu ou foi gravada em dobro (Tabela~\ref{tab:integridade}).
+
+\begin{table}[ht]
+\centering
+\caption{Verificação de integridade no SQLite.}
+\label{tab:integridade}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.5cm}L}
+\toprule
+\textbf{Verificação} & \textbf{Resultado} \\
+\midrule
+Registros por partição $=$ maior offset $-$ menor offset $+ 1$ &
+\textbf{Sim, nas 6 partições} (11\,184 leituras, offsets de 0 até o último).
+Nenhuma mensagem perdida e nenhuma gravada em dobro, mesmo com 2 quedas de
+broker, 1 queda de processador e 5 mudanças de escala. \\
+Alertas em leituras sem anomalia simulada (falsos positivos) & \textbf{0} \\
+Anomalias simuladas sem alerta &
+28, todas do setor de empacotamento. O valor base desse setor é mais baixo
+(55\,°C, 20\,kW), e o acréscimo simulado (75\% a 125\% do valor configurado)
+nem sempre ultrapassa os limites globais (85\,°C, 45\,kW). A detecção está
+correta; é a simulação que nem sempre gera um valor anômalo. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% =====================================================================
+\section{Exibição dos resultados}
+
+\begin{itemize}
+  \item \textbf{Logs:} \cod{make logs-processadores}, \cod{make rebalancos},
+        \cod{make alertas}.
+  \item \textbf{Estado do cluster:} \cod{make status} mostra, por partição, o
+        líder e o ISR (\cod{kafka-topics.sh --describe}) e o processador
+        responsável, com o atraso (\cod{kafka-consumer-groups.sh --describe}).
+  \item \textbf{Banco:} \cod{make consultar} mostra as leituras por
+        processador (balanceamento), as leituras por partição, o histórico de
+        rebalanços, os alertas e a comparação entre anomalias simuladas e
+        detectadas.
+  \item \textbf{Evidências:} \cod{make demo} grava todo o roteiro de testes
+        em \cod{logs/demo-<data>.log}; \cod{make salvar-logs} grava os logs
+        completos de cada serviço em \cod{logs/completo-<data>/}.
+\end{itemize}
+
+% =====================================================================
+\section{O que funcionou e o que não funcionou}
+\label{sec:funcionou}
+
+\subsection{O que funcionou}
+
+Todos os objetivos do enunciado foram demonstrados na execução registrada em
+\cod{logs/}:
+\begin{itemize}
+  \item cluster de 3 brokers com o tópico em 6 partições replicadas 3 vezes;
+  \item sensores em containers distintos e escaláveis;
+  \item balanceamento automático entre os processadores;
+  \item continuidade com a queda de um broker, inclusive do controller;
+  \item rebalanço com a queda de um processador;
+  \item elasticidade para cima e para baixo;
+  \item nenhuma perda nem duplicação no banco.
+\end{itemize}
+
+\subsection{Problemas encontrados e como foram resolvidos}
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{5.3cm}>{\raggedright\arraybackslash}p{5.2cm}}
+\toprule
+\textbf{Problema observado} & \textbf{Causa} & \textbf{Solução} \\
+\midrule
+\endhead
+Os três serviços de sensor falhavam no build com
+\cod{image "fabrica-sensor:latest": already exists}. &
+Os três serviços declaravam o mesmo nome de imagem e o Compose os construía
+em paralelo. &
+Nome fixo removido; cada serviço gera sua própria imagem, reaproveitando as
+camadas do cache. \\
+\midrule
+Cada processador recebia cerca de 400\,msg/s em vez das cerca de 9 esperadas. &
+\cod{producer.poll(t)} retorna assim que atende um callback de entrega, e o
+sensor não esperava o intervalo completo. &
+Laço que chama \cod{poll()} até completar o intervalo. \\
+\midrule
+As 9 máquinas iniciais caíam só nas partições 0 e 2, deixando dois
+processadores ociosos. &
+O particionador padrão da \cod{librdkafka} (CRC32) é linear; para chaves
+parecidas, o hash módulo 6 saía quase sempre par. &
+\cod{partitioner=}\allowbreak\cod{murmur2_random} e 8 máquinas por container (com poucas
+chaves, a distribuição por hash é naturalmente irregular). \\
+\midrule
+Na queda de \textbf{qualquer} broker, a escrita parava cerca de 10\,s e
+\textbf{todos os processadores perdiam as partições}, gerando um rebalanço
+completo. &
+O controller levava \cod{broker.session.timeout.ms} (9\,s) para declarar o
+broker morto. Até lá ele continuava no ISR, e as escritas com \cod{acks=all}
+e as gravações do coordenador do grupo esperavam por ele, esgotando o
+\cod{session.timeout} (10\,s) dos processadores. &
+\cod{KAFKA_BROKER_}\allowbreak\cod{SESSION_TIMEOUT_MS=4000} e heartbeat de
+1\,s. Depois disso, a queda de um broker comum e a do controller passaram sem
+rebalanço. \\
+\midrule
+Durante os testes, todos os containers terminaram de uma vez com código 255. &
+O WSL desliga a máquina virtual quando não há terminal do Ubuntu aberto, e o
+Docker cai junto. &
+Documentado nas instruções. Ao rodar \cod{make up} de novo, o sistema voltou
+com os dados preservados nos volumes, sem lacunas de offset. \\
+\bottomrule
+\end{longtable}
+}
+
+Numa queda de broker, ainda pode haver rebalanço do grupo se o broker morto
+for o \textbf{coordenador do grupo}, ou seja, o broker que lidera a partição
+de \cod{__consumer_offsets} onde o grupo é mantido. Isso foi observado em um
+teste exploratório: os processadores precisaram localizar o novo coordenador,
+dois deles ficaram cerca de 10\,s sem partições e as mensagens reentregues
+foram descartadas como duplicadas. Não houve perda de dados. É o
+comportamento esperado do protocolo, e a demonstração final não caiu nesse
+caso.
+
+\subsection{Limitações conhecidas}
+
+\begin{itemize}
+  \item Com \textbf{dois brokers fora} ao mesmo tempo, o cluster perde o
+        quórum KRaft e as partições ficam abaixo do mínimo de réplicas. O
+        sistema deixa de aceitar escritas até um broker voltar. É uma
+        consequência da configuração escolhida, não um defeito.
+  \item O \textbf{SQLite} é um ponto único: fica em um volume local do host
+        Docker e não seria adequado a um cluster com várias máquinas.
+  \item A detecção de anomalias usa limites fixos por métrica, iguais para
+        todos os setores.
+\end{itemize}
+
+% =====================================================================
+\section{Conclusão}
+
+O sistema atende aos três requisitos do mini-mundo. A \textbf{tolerância a
+falhas} vem da replicação do tópico e do quórum KRaft, do lado dos brokers,
+e do rebalanço do grupo de consumo, do lado dos processadores. A
+\textbf{escalabilidade} foi demonstrada acrescentando e removendo
+processadores e sensores com o sistema em funcionamento. O
+\textbf{balanceamento de carga} resulta da combinação entre o particionamento
+por chave e a atribuição de partições pelo coordenador do grupo. A
+verificação final no banco mostrou que, ao longo de todas as falhas e
+mudanças de escala, nenhuma leitura foi perdida ou gravada em duplicidade.
+
+Os testes também mostraram que parâmetros de temporização
+(\cod{broker.session.timeout.ms}, \cod{session.timeout.ms}) e a escolha do
+particionador influenciam diretamente a percepção de disponibilidade e o
+equilíbrio da carga. Parte do trabalho foi justamente identificar e ajustar
+esses pontos a partir dos logs.
+
+% =====================================================================
+\appendix
+\section{Entregáveis}
+
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.5cm}L}
+\toprule
+\textbf{Entregável (enunciado)} & \textbf{Arquivo(s)} \\
+\midrule
+Relatório & \cod{relatorio/relatorio.tex} (este documento) e \cod{README.md} \\
+Makefile & \cod{Makefile} \\
+Código-fonte dos produtores e consumidores & \cod{sensor/sensor.py}, \cod{processador/processador.py}, \cod{processador/armazenamento.py}, \cod{processador/consultar.py} \\
+Arquivos YAML com todos os serviços & \cod{docker-compose.yaml} (+ \cod{.env}) \\
+Scripts de simulação de falhas & \cod{scripts/falha_broker.sh}, \cod{scripts/recupera_broker.sh}, \cod{scripts/falha_consumidor.sh} \\
+Logs de execução mostrando rebalanço & \cod{logs/demo-20260925-194937.log}, \cod{logs/completo-20260925-195700/} \\
+Demonstração da elasticidade & \cod{scripts/escala.sh}, \cod{scripts/demo.sh} (seções 7 a 10 do log) \\
+Arquivos \cod{pom.xml} & Não se aplica (projeto em Python; dependências em \cod{requirements.txt}) \\
+\bottomrule
+\end{tabularx}
+
+\end{document}

@@ -1,0 +1,186 @@
+sensor-producao-1  | 2026-09-25T22:48:55.941610807Z 2026-09-25 22:48:55,940 INFO [sensor] sensor fd72eef2878d iniciado: 8 máquinas, tópico=dados-sensores, intervalo=1.0s
+sensor-producao-1  | 2026-09-25T22:48:55.942452149Z 2026-09-25 22:48:55,941 INFO [sensor] anomalia simulada em producao-fd72ee-m7: energia_kw
+sensor-producao-1  | 2026-09-25T22:48:55.954808970Z %4|1790376535.954|GETPID|fd72eef2878d#producer-1| [thrd:main]: Failed to acquire idempotence PID from broker kafka-2:9092/2: Broker: Coordinator load in progress: retrying
+sensor-producao-1  | 2026-09-25T22:48:56.603110621Z 2026-09-25 22:48:56,602 INFO [sensor] máquina producao-fd72ee-m5 -> partição 4
+sensor-producao-1  | 2026-09-25T22:48:56.619014672Z 2026-09-25 22:48:56,618 INFO [sensor] máquina producao-fd72ee-m1 -> partição 5
+sensor-producao-1  | 2026-09-25T22:48:56.619070042Z 2026-09-25 22:48:56,618 INFO [sensor] máquina producao-fd72ee-m6 -> partição 5
+sensor-producao-1  | 2026-09-25T22:48:56.619244243Z 2026-09-25 22:48:56,618 INFO [sensor] máquina producao-fd72ee-m7 -> partição 5
+sensor-producao-1  | 2026-09-25T22:48:56.653649520Z 2026-09-25 22:48:56,651 INFO [sensor] máquina producao-fd72ee-m3 -> partição 2
+sensor-producao-1  | 2026-09-25T22:48:56.653689958Z 2026-09-25 22:48:56,652 INFO [sensor] máquina producao-fd72ee-m4 -> partição 2
+sensor-producao-1  | 2026-09-25T22:48:56.653694790Z 2026-09-25 22:48:56,652 INFO [sensor] máquina producao-fd72ee-m8 -> partição 2
+sensor-producao-1  | 2026-09-25T22:48:56.656035344Z 2026-09-25 22:48:56,655 INFO [sensor] máquina producao-fd72ee-m2 -> partição 0
+sensor-producao-1  | 2026-09-25T22:49:05.973963814Z 2026-09-25 22:49:05,973 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:49:07.973786101Z 2026-09-25 22:49:07,973 INFO [sensor] anomalia simulada em producao-fd72ee-m2: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:49:15.974025950Z 2026-09-25 22:49:15,973 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:49:20.974595693Z 2026-09-25 22:49:20,974 INFO [sensor] anomalia simulada em producao-fd72ee-m1: energia_kw
+sensor-producao-1  | 2026-09-25T22:49:25.974647079Z 2026-09-25 22:49:25,974 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:49:31.974820389Z 2026-09-25 22:49:31,974 INFO [sensor] anomalia simulada em producao-fd72ee-m2: energia_kw
+sensor-producao-1  | 2026-09-25T22:49:33.974730687Z 2026-09-25 22:49:33,974 INFO [sensor] anomalia simulada em producao-fd72ee-m1: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:49:34.974796162Z 2026-09-25 22:49:34,974 INFO [sensor] anomalia simulada em producao-fd72ee-m4: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:49:35.975200819Z 2026-09-25 22:49:35,974 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:49:36.975244019Z 2026-09-25 22:49:36,974 INFO [sensor] anomalia simulada em producao-fd72ee-m7: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:49:41.975431515Z 2026-09-25 22:49:41,975 INFO [sensor] anomalia simulada em producao-fd72ee-m4: energia_kw
+sensor-producao-1  | 2026-09-25T22:49:44.975295795Z 2026-09-25 22:49:44,975 INFO [sensor] anomalia simulada em producao-fd72ee-m1: energia_kw
+sensor-producao-1  | 2026-09-25T22:49:44.975326306Z 2026-09-25 22:49:44,975 INFO [sensor] anomalia simulada em producao-fd72ee-m6: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:49:45.975373452Z 2026-09-25 22:49:45,975 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:49:51.975365445Z 2026-09-25 22:49:51,975 INFO [sensor] anomalia simulada em producao-fd72ee-m1: energia_kw
+sensor-producao-1  | 2026-09-25T22:49:55.975588803Z 2026-09-25 22:49:55,975 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:49:56.975555394Z 2026-09-25 22:49:56,975 INFO [sensor] anomalia simulada em producao-fd72ee-m5: energia_kw
+sensor-producao-1  | 2026-09-25T22:49:57.975567251Z 2026-09-25 22:49:57,975 INFO [sensor] anomalia simulada em producao-fd72ee-m8: temperatura_c
+sensor-producao-1  | 2026-09-25T22:50:02.975932217Z 2026-09-25 22:50:02,975 INFO [sensor] anomalia simulada em producao-fd72ee-m6: temperatura_c
+sensor-producao-1  | 2026-09-25T22:50:05.975709904Z 2026-09-25 22:50:05,975 INFO [sensor] anomalia simulada em producao-fd72ee-m6: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:50:05.975737540Z 2026-09-25 22:50:05,975 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:50:07.905489969Z %6|1790376607.905|FAIL|fd72eef2878d#producer-1| [thrd:kafka-2:9092/bootstrap]: kafka-2:9092/2: Disconnected (after 71956ms in state UP)
+sensor-producao-1  | 2026-09-25T22:50:12.975692573Z 2026-09-25 22:50:12,975 INFO [sensor] anomalia simulada em producao-fd72ee-m2: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:50:16.975772056Z 2026-09-25 22:50:16,975 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 11, 2: 33, 4: 11, 5: 33}
+sensor-producao-1  | 2026-09-25T22:50:23.976073799Z 2026-09-25 22:50:23,975 INFO [sensor] anomalia simulada em producao-fd72ee-m7: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:50:24.976020097Z 2026-09-25 22:50:24,975 INFO [sensor] anomalia simulada em producao-fd72ee-m8: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:50:26.976094640Z 2026-09-25 22:50:26,975 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:50:36.976847236Z 2026-09-25 22:50:36,976 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:50:38.499972998Z %4|1790376638.499|FAIL|fd72eef2878d#producer-1| [thrd:kafka-2:9092/bootstrap]: kafka-2:9092/2: Connection setup timed out in state CONNECT (after 30524ms in state CONNECT)
+sensor-producao-1  | 2026-09-25T22:50:41.976668039Z 2026-09-25 22:50:41,976 INFO [sensor] anomalia simulada em producao-fd72ee-m1: energia_kw
+sensor-producao-1  | 2026-09-25T22:50:41.976690635Z 2026-09-25 22:50:41,976 INFO [sensor] anomalia simulada em producao-fd72ee-m6: temperatura_c
+sensor-producao-1  | 2026-09-25T22:50:42.976706856Z 2026-09-25 22:50:42,976 INFO [sensor] anomalia simulada em producao-fd72ee-m6: temperatura_c
+sensor-producao-1  | 2026-09-25T22:50:46.976670283Z 2026-09-25 22:50:46,976 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:50:49.976710152Z 2026-09-25 22:50:49,976 INFO [sensor] anomalia simulada em producao-fd72ee-m2: temperatura_c
+sensor-producao-1  | 2026-09-25T22:50:50.976844473Z 2026-09-25 22:50:50,976 INFO [sensor] anomalia simulada em producao-fd72ee-m4: temperatura_c
+sensor-producao-1  | 2026-09-25T22:50:53.976750301Z 2026-09-25 22:50:53,976 INFO [sensor] anomalia simulada em producao-fd72ee-m6: energia_kw
+sensor-producao-1  | 2026-09-25T22:50:54.976641874Z 2026-09-25 22:50:54,976 INFO [sensor] anomalia simulada em producao-fd72ee-m4: temperatura_c
+sensor-producao-1  | 2026-09-25T22:50:56.976900002Z 2026-09-25 22:50:56,976 INFO [sensor] anomalia simulada em producao-fd72ee-m1: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:50:56.976986391Z 2026-09-25 22:50:56,976 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:51:06.977171706Z 2026-09-25 22:51:06,976 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:51:09.977236926Z 2026-09-25 22:51:09,976 INFO [sensor] anomalia simulada em producao-fd72ee-m5: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:51:11.977436613Z 2026-09-25 22:51:11,977 INFO [sensor] anomalia simulada em producao-fd72ee-m2: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:51:11.977909359Z 2026-09-25 22:51:11,977 INFO [sensor] anomalia simulada em producao-fd72ee-m6: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:51:16.977194084Z 2026-09-25 22:51:16,977 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:51:19.013305295Z %6|1790376679.012|FAIL|fd72eef2878d#producer-1| [thrd:kafka-1:9092/bootstrap]: kafka-1:9092/1: Disconnected (after 142551ms in state UP)
+sensor-producao-1  | 2026-09-25T22:51:19.977392041Z 2026-09-25 22:51:19,977 INFO [sensor] anomalia simulada em producao-fd72ee-m7: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:51:19.977728573Z %3|1790376679.977|FAIL|fd72eef2878d#producer-1| [thrd:kafka-1:9092/bootstrap]: kafka-1:9092/1: Failed to resolve 'kafka-1:9092': Temporary failure in name resolution (after 0ms in state CONNECT)
+sensor-producao-1  | 2026-09-25T22:51:20.979475269Z %3|1790376680.979|FAIL|fd72eef2878d#producer-1| [thrd:kafka-1:9092/bootstrap]: kafka-1:9092/1: Failed to resolve 'kafka-1:9092': Temporary failure in name resolution (after 1ms in state CONNECT, 1 identical error(s) suppressed)
+sensor-producao-1  | 2026-09-25T22:51:22.977343257Z 2026-09-25 22:51:22,977 INFO [sensor] anomalia simulada em producao-fd72ee-m6: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:51:24.977355268Z 2026-09-25 22:51:24,977 INFO [sensor] anomalia simulada em producao-fd72ee-m8: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:51:26.977355489Z 2026-09-25 22:51:26,977 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=52 (5.2 msg/s) falhas=0 por_particao={0: 10, 2: 9, 4: 3, 5: 30}
+sensor-producao-1  | 2026-09-25T22:51:27.977373970Z 2026-09-25 22:51:27,977 INFO [sensor] anomalia simulada em producao-fd72ee-m5: temperatura_c
+sensor-producao-1  | 2026-09-25T22:51:36.977505639Z 2026-09-25 22:51:36,977 INFO [sensor] anomalia simulada em producao-fd72ee-m2: energia_kw
+sensor-producao-1  | 2026-09-25T22:51:36.977534304Z 2026-09-25 22:51:36,977 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=108 (10.8 msg/s) falhas=0 por_particao={0: 10, 2: 51, 4: 17, 5: 30}
+sensor-producao-1  | 2026-09-25T22:51:46.977828951Z 2026-09-25 22:51:46,977 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:51:53.977801865Z 2026-09-25 22:51:53,977 INFO [sensor] anomalia simulada em producao-fd72ee-m1: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:51:55.977860862Z 2026-09-25 22:51:55,977 INFO [sensor] anomalia simulada em producao-fd72ee-m7: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:51:56.977814471Z 2026-09-25 22:51:56,977 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:51:58.977817355Z 2026-09-25 22:51:58,977 INFO [sensor] anomalia simulada em producao-fd72ee-m7: temperatura_c
+sensor-producao-1  | 2026-09-25T22:51:59.977785775Z 2026-09-25 22:51:59,977 INFO [sensor] anomalia simulada em producao-fd72ee-m4: temperatura_c
+sensor-producao-1  | 2026-09-25T22:52:00.977811828Z 2026-09-25 22:52:00,977 INFO [sensor] anomalia simulada em producao-fd72ee-m2: temperatura_c
+sensor-producao-1  | 2026-09-25T22:52:04.977866338Z 2026-09-25 22:52:04,977 INFO [sensor] anomalia simulada em producao-fd72ee-m1: temperatura_c
+sensor-producao-1  | 2026-09-25T22:52:04.977907567Z 2026-09-25 22:52:04,977 INFO [sensor] anomalia simulada em producao-fd72ee-m4: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:52:06.977861016Z 2026-09-25 22:52:06,977 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:52:08.978099248Z 2026-09-25 22:52:08,977 INFO [sensor] anomalia simulada em producao-fd72ee-m1: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:52:09.978302369Z 2026-09-25 22:52:09,977 INFO [sensor] anomalia simulada em producao-fd72ee-m1: energia_kw
+sensor-producao-1  | 2026-09-25T22:52:09.978327101Z 2026-09-25 22:52:09,978 INFO [sensor] anomalia simulada em producao-fd72ee-m2: temperatura_c
+sensor-producao-1  | 2026-09-25T22:52:09.978593535Z 2026-09-25 22:52:09,978 INFO [sensor] anomalia simulada em producao-fd72ee-m7: temperatura_c
+sensor-producao-1  | 2026-09-25T22:52:10.978505562Z 2026-09-25 22:52:10,978 INFO [sensor] anomalia simulada em producao-fd72ee-m7: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:52:16.979025370Z 2026-09-25 22:52:16,978 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:52:17.978984933Z 2026-09-25 22:52:17,978 INFO [sensor] anomalia simulada em producao-fd72ee-m8: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:52:22.979064215Z 2026-09-25 22:52:22,978 INFO [sensor] anomalia simulada em producao-fd72ee-m8: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:52:26.979120339Z 2026-09-25 22:52:26,978 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:52:28.979157283Z 2026-09-25 22:52:28,978 INFO [sensor] anomalia simulada em producao-fd72ee-m2: energia_kw
+sensor-producao-1  | 2026-09-25T22:52:29.979035461Z 2026-09-25 22:52:29,978 INFO [sensor] anomalia simulada em producao-fd72ee-m7: temperatura_c
+sensor-producao-1  | 2026-09-25T22:52:31.979170489Z 2026-09-25 22:52:31,978 INFO [sensor] anomalia simulada em producao-fd72ee-m8: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:52:33.979051055Z 2026-09-25 22:52:33,978 INFO [sensor] anomalia simulada em producao-fd72ee-m2: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:52:36.979216636Z 2026-09-25 22:52:36,979 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:52:37.979344939Z 2026-09-25 22:52:37,979 INFO [sensor] anomalia simulada em producao-fd72ee-m1: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:52:37.979370262Z 2026-09-25 22:52:37,979 INFO [sensor] anomalia simulada em producao-fd72ee-m2: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:52:40.979257808Z 2026-09-25 22:52:40,979 INFO [sensor] anomalia simulada em producao-fd72ee-m5: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:52:42.979313232Z 2026-09-25 22:52:42,979 INFO [sensor] anomalia simulada em producao-fd72ee-m6: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:52:46.979376760Z 2026-09-25 22:52:46,979 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:52:54.979451538Z 2026-09-25 22:52:54,979 INFO [sensor] anomalia simulada em producao-fd72ee-m2: temperatura_c
+sensor-producao-1  | 2026-09-25T22:52:56.979936831Z 2026-09-25 22:52:56,979 INFO [sensor] anomalia simulada em producao-fd72ee-m8: energia_kw
+sensor-producao-1  | 2026-09-25T22:52:56.979977774Z 2026-09-25 22:52:56,979 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:52:58.979402306Z 2026-09-25 22:52:58,979 INFO [sensor] anomalia simulada em producao-fd72ee-m8: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:53:00.979574293Z 2026-09-25 22:53:00,979 INFO [sensor] anomalia simulada em producao-fd72ee-m5: energia_kw
+sensor-producao-1  | 2026-09-25T22:53:02.979651698Z 2026-09-25 22:53:02,979 INFO [sensor] anomalia simulada em producao-fd72ee-m7: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:53:03.979662922Z 2026-09-25 22:53:03,979 INFO [sensor] anomalia simulada em producao-fd72ee-m2: energia_kw
+sensor-producao-1  | 2026-09-25T22:53:03.979695157Z 2026-09-25 22:53:03,979 INFO [sensor] anomalia simulada em producao-fd72ee-m7: energia_kw
+sensor-producao-1  | 2026-09-25T22:53:07.980262438Z 2026-09-25 22:53:07,980 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 11, 2: 33, 4: 11, 5: 33}
+sensor-producao-1  | 2026-09-25T22:53:16.980484303Z 2026-09-25 22:53:16,980 INFO [sensor] anomalia simulada em producao-fd72ee-m2: energia_kw
+sensor-producao-1  | 2026-09-25T22:53:17.980653371Z 2026-09-25 22:53:17,980 INFO [sensor] anomalia simulada em producao-fd72ee-m3: energia_kw
+sensor-producao-1  | 2026-09-25T22:53:17.980721041Z 2026-09-25 22:53:17,980 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:53:18.980722043Z 2026-09-25 22:53:18,980 INFO [sensor] anomalia simulada em producao-fd72ee-m6: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:53:19.980991286Z 2026-09-25 22:53:19,980 INFO [sensor] anomalia simulada em producao-fd72ee-m4: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:53:23.980596098Z 2026-09-25 22:53:23,980 INFO [sensor] anomalia simulada em producao-fd72ee-m1: temperatura_c
+sensor-producao-1  | 2026-09-25T22:53:23.980622289Z 2026-09-25 22:53:23,980 INFO [sensor] anomalia simulada em producao-fd72ee-m2: energia_kw
+sensor-producao-1  | 2026-09-25T22:53:23.980687190Z 2026-09-25 22:53:23,980 INFO [sensor] anomalia simulada em producao-fd72ee-m6: energia_kw
+sensor-producao-1  | 2026-09-25T22:53:27.981225690Z 2026-09-25 22:53:27,980 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:53:35.981288288Z 2026-09-25 22:53:35,981 INFO [sensor] anomalia simulada em producao-fd72ee-m8: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:53:37.981253909Z 2026-09-25 22:53:37,980 INFO [sensor] anomalia simulada em producao-fd72ee-m1: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:53:37.981291826Z 2026-09-25 22:53:37,981 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:53:38.981200719Z 2026-09-25 22:53:38,981 INFO [sensor] anomalia simulada em producao-fd72ee-m7: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:53:43.981643151Z 2026-09-25 22:53:43,981 INFO [sensor] anomalia simulada em producao-fd72ee-m5: temperatura_c
+sensor-producao-1  | 2026-09-25T22:53:44.981210739Z 2026-09-25 22:53:44,981 INFO [sensor] anomalia simulada em producao-fd72ee-m5: temperatura_c
+sensor-producao-1  | 2026-09-25T22:53:47.981565757Z 2026-09-25 22:53:47,981 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:53:49.981209137Z 2026-09-25 22:53:49,981 INFO [sensor] anomalia simulada em producao-fd72ee-m1: energia_kw
+sensor-producao-1  | 2026-09-25T22:53:53.981317893Z 2026-09-25 22:53:53,981 INFO [sensor] anomalia simulada em producao-fd72ee-m5: temperatura_c
+sensor-producao-1  | 2026-09-25T22:53:55.981257177Z 2026-09-25 22:53:55,981 INFO [sensor] anomalia simulada em producao-fd72ee-m2: energia_kw
+sensor-producao-1  | 2026-09-25T22:53:56.981410948Z 2026-09-25 22:53:56,981 INFO [sensor] anomalia simulada em producao-fd72ee-m3: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:53:57.981514749Z 2026-09-25 22:53:57,981 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:53:58.981430800Z 2026-09-25 22:53:58,981 INFO [sensor] anomalia simulada em producao-fd72ee-m4: energia_kw
+sensor-producao-1  | 2026-09-25T22:53:59.981510476Z 2026-09-25 22:53:59,981 INFO [sensor] anomalia simulada em producao-fd72ee-m6: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:54:01.981640804Z 2026-09-25 22:54:01,981 INFO [sensor] anomalia simulada em producao-fd72ee-m1: temperatura_c
+sensor-producao-1  | 2026-09-25T22:54:04.981632982Z 2026-09-25 22:54:04,981 INFO [sensor] anomalia simulada em producao-fd72ee-m5: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:54:07.981660228Z 2026-09-25 22:54:07,981 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:54:09.981586673Z 2026-09-25 22:54:09,981 INFO [sensor] anomalia simulada em producao-fd72ee-m4: energia_kw
+sensor-producao-1  | 2026-09-25T22:54:17.981742116Z 2026-09-25 22:54:17,981 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:54:23.981634512Z 2026-09-25 22:54:23,981 INFO [sensor] anomalia simulada em producao-fd72ee-m7: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:54:27.982113217Z 2026-09-25 22:54:27,981 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:54:34.982095182Z 2026-09-25 22:54:34,981 INFO [sensor] anomalia simulada em producao-fd72ee-m3: temperatura_c
+sensor-producao-1  | 2026-09-25T22:54:35.981997139Z 2026-09-25 22:54:35,981 INFO [sensor] anomalia simulada em producao-fd72ee-m5: energia_kw
+sensor-producao-1  | 2026-09-25T22:54:36.982031707Z 2026-09-25 22:54:36,981 INFO [sensor] anomalia simulada em producao-fd72ee-m8: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:54:38.982089432Z 2026-09-25 22:54:38,981 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 11, 2: 33, 4: 11, 5: 33}
+sensor-producao-1  | 2026-09-25T22:54:44.982305671Z 2026-09-25 22:54:44,982 INFO [sensor] anomalia simulada em producao-fd72ee-m2: temperatura_c
+sensor-producao-1  | 2026-09-25T22:54:46.982584218Z 2026-09-25 22:54:46,982 INFO [sensor] anomalia simulada em producao-fd72ee-m7: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:54:48.982414464Z 2026-09-25 22:54:48,982 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:54:56.982987097Z 2026-09-25 22:54:56,982 INFO [sensor] anomalia simulada em producao-fd72ee-m1: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:54:58.983167319Z 2026-09-25 22:54:58,982 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:55:06.983251178Z 2026-09-25 22:55:06,982 INFO [sensor] anomalia simulada em producao-fd72ee-m4: temperatura_c
+sensor-producao-1  | 2026-09-25T22:55:08.983166234Z 2026-09-25 22:55:08,982 INFO [sensor] anomalia simulada em producao-fd72ee-m4: temperatura_c
+sensor-producao-1  | 2026-09-25T22:55:08.983227273Z 2026-09-25 22:55:08,983 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:55:11.983162306Z 2026-09-25 22:55:11,982 INFO [sensor] anomalia simulada em producao-fd72ee-m5: temperatura_c
+sensor-producao-1  | 2026-09-25T22:55:13.983444249Z 2026-09-25 22:55:13,983 INFO [sensor] anomalia simulada em producao-fd72ee-m1: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:55:17.983541797Z 2026-09-25 22:55:17,983 INFO [sensor] anomalia simulada em producao-fd72ee-m5: temperatura_c
+sensor-producao-1  | 2026-09-25T22:55:18.983532853Z 2026-09-25 22:55:18,983 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:55:19.983704969Z 2026-09-25 22:55:19,983 INFO [sensor] anomalia simulada em producao-fd72ee-m2: temperatura_c
+sensor-producao-1  | 2026-09-25T22:55:24.983744749Z 2026-09-25 22:55:24,983 INFO [sensor] anomalia simulada em producao-fd72ee-m7: energia_kw
+sensor-producao-1  | 2026-09-25T22:55:28.983904874Z 2026-09-25 22:55:28,983 INFO [sensor] anomalia simulada em producao-fd72ee-m5: energia_kw
+sensor-producao-1  | 2026-09-25T22:55:28.983937901Z 2026-09-25 22:55:28,983 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:55:29.983925292Z 2026-09-25 22:55:29,983 INFO [sensor] anomalia simulada em producao-fd72ee-m2: energia_kw
+sensor-producao-1  | 2026-09-25T22:55:31.984027854Z 2026-09-25 22:55:31,983 INFO [sensor] anomalia simulada em producao-fd72ee-m3: energia_kw
+sensor-producao-1  | 2026-09-25T22:55:31.984052119Z 2026-09-25 22:55:31,983 INFO [sensor] anomalia simulada em producao-fd72ee-m4: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:55:31.984053702Z 2026-09-25 22:55:31,983 INFO [sensor] anomalia simulada em producao-fd72ee-m5: temperatura_c
+sensor-producao-1  | 2026-09-25T22:55:38.984106307Z 2026-09-25 22:55:38,983 INFO [sensor] anomalia simulada em producao-fd72ee-m5: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:55:38.984150221Z 2026-09-25 22:55:38,984 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:55:39.984096827Z 2026-09-25 22:55:39,983 INFO [sensor] anomalia simulada em producao-fd72ee-m3: temperatura_c
+sensor-producao-1  | 2026-09-25T22:55:40.984145186Z 2026-09-25 22:55:40,983 INFO [sensor] anomalia simulada em producao-fd72ee-m8: energia_kw
+sensor-producao-1  | 2026-09-25T22:55:41.984407244Z 2026-09-25 22:55:41,984 INFO [sensor] anomalia simulada em producao-fd72ee-m1: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:55:46.985401869Z 2026-09-25 22:55:46,985 INFO [sensor] anomalia simulada em producao-fd72ee-m3: energia_kw
+sensor-producao-1  | 2026-09-25T22:55:48.984653538Z 2026-09-25 22:55:48,984 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:55:55.984713861Z 2026-09-25 22:55:55,984 INFO [sensor] anomalia simulada em producao-fd72ee-m7: temperatura_c
+sensor-producao-1  | 2026-09-25T22:55:58.984898744Z 2026-09-25 22:55:58,984 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:56:07.984730530Z 2026-09-25 22:56:07,984 INFO [sensor] anomalia simulada em producao-fd72ee-m6: temperatura_c
+sensor-producao-1  | 2026-09-25T22:56:08.985068926Z 2026-09-25 22:56:08,984 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:56:09.984995692Z 2026-09-25 22:56:09,984 INFO [sensor] anomalia simulada em producao-fd72ee-m4: temperatura_c
+sensor-producao-1  | 2026-09-25T22:56:16.985305031Z 2026-09-25 22:56:16,985 INFO [sensor] anomalia simulada em producao-fd72ee-m2: energia_kw
+sensor-producao-1  | 2026-09-25T22:56:17.985251770Z 2026-09-25 22:56:17,985 INFO [sensor] anomalia simulada em producao-fd72ee-m2: energia_kw
+sensor-producao-1  | 2026-09-25T22:56:18.985376970Z 2026-09-25 22:56:18,985 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:56:20.985374810Z 2026-09-25 22:56:20,985 INFO [sensor] anomalia simulada em producao-fd72ee-m8: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:56:21.985324798Z 2026-09-25 22:56:21,985 INFO [sensor] anomalia simulada em producao-fd72ee-m3: temperatura_c
+sensor-producao-1  | 2026-09-25T22:56:28.986183164Z 2026-09-25 22:56:28,985 INFO [sensor] anomalia simulada em producao-fd72ee-m6: energia_kw
+sensor-producao-1  | 2026-09-25T22:56:28.986224828Z 2026-09-25 22:56:28,986 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:56:29.985790040Z 2026-09-25 22:56:29,985 INFO [sensor] anomalia simulada em producao-fd72ee-m8: vibracao_mm_s
+sensor-producao-1  | 2026-09-25T22:56:37.986011129Z 2026-09-25 22:56:37,985 INFO [sensor] anomalia simulada em producao-fd72ee-m6: temperatura_c
+sensor-producao-1  | 2026-09-25T22:56:38.986563506Z 2026-09-25 22:56:38,986 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:56:48.987089051Z 2026-09-25 22:56:48,986 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:56:50.987334413Z 2026-09-25 22:56:50,986 INFO [sensor] anomalia simulada em producao-fd72ee-m1: energia_kw
+sensor-producao-1  | 2026-09-25T22:56:52.987180254Z 2026-09-25 22:56:52,986 INFO [sensor] anomalia simulada em producao-fd72ee-m4: temperatura_c
+sensor-producao-1  | 2026-09-25T22:56:52.987204553Z 2026-09-25 22:56:52,987 INFO [sensor] anomalia simulada em producao-fd72ee-m5: temperatura_c
+sensor-producao-1  | 2026-09-25T22:56:56.987341275Z 2026-09-25 22:56:56,987 INFO [sensor] anomalia simulada em producao-fd72ee-m4: energia_kw
+sensor-producao-1  | 2026-09-25T22:56:58.987372577Z 2026-09-25 22:56:58,987 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1  | 2026-09-25T22:57:02.987722144Z 2026-09-25 22:57:02,987 INFO [sensor] anomalia simulada em producao-fd72ee-m5: energia_kw

@@ -1,0 +1,230 @@
+# =====================================================================
+# Sistema de Monitoramento de Sensores de uma Fábrica Inteligente
+#
+#   sensores (produtores) --> Kafka (3 brokers, tópico replicado)
+#                         --> processadores (grupo de consumo) --> SQLite
+#
+# Todos os valores configuráveis vêm do arquivo .env.
+# =====================================================================
+
+# ---------- Configuração comum aos três brokers (modo KRaft) ----------
+x-kafka-env: &kafka-env
+  CLUSTER_ID: ${KAFKA_CLUSTER_ID}                 # mesmo ID nos 3 nós
+  KAFKA_PROCESS_ROLES: broker,controller          # cada nó é broker e controller
+  KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka-1:9093,2@kafka-2:9093,3@kafka-3:9093
+  KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+  KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+  KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+  KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+  KAFKA_LOG_DIRS: /var/lib/kafka/data            # dados ficam no volume do broker
+  # Tópicos internos (offsets dos consumidores e transações) também replicados
+  KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: ${TOPICO_REPLICACAO}
+  KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: ${TOPICO_REPLICACAO}
+  KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: ${TOPICO_MIN_ISR}
+  KAFKA_DEFAULT_REPLICATION_FACTOR: ${TOPICO_REPLICACAO}
+  KAFKA_MIN_INSYNC_REPLICAS: ${TOPICO_MIN_ISR}
+  # O tópico é criado explicitamente pelo serviço kafka-init
+  KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+  # Detecção rápida de broker morto pelo controller (ver .env)
+  KAFKA_BROKER_SESSION_TIMEOUT_MS: ${KAFKA_BROKER_SESSION_TIMEOUT_MS}
+  KAFKA_BROKER_HEARTBEAT_INTERVAL_MS: ${KAFKA_BROKER_HEARTBEAT_INTERVAL_MS}
+  # Rebalanço imediato quando consumidores entram no grupo
+  KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+  KAFKA_HEAP_OPTS: ${KAFKA_HEAP_OPTS}
+
+x-kafka: &kafka
+  image: ${KAFKA_IMAGE}
+  healthcheck:                                    # broker pronto = porta 9092 aceitando conexões
+    test: ["CMD-SHELL", "nc -z localhost 9092 || bash -c '</dev/tcp/localhost/9092'"]
+    interval: 5s
+    timeout: 5s
+    retries: 24
+    start_period: 10s
+  deploy:
+    resources:
+      limits:
+        memory: 1200M
+      reservations:
+        memory: 512M
+  networks:
+    - int-network
+
+# ---------- Configuração comum aos sensores ----------
+x-sensor-env: &sensor-env
+  KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_BOOTSTRAP_SERVERS}
+  TOPICO: ${TOPICO}
+  SENSOR_MAQUINAS: ${SENSOR_MAQUINAS}
+  SENSOR_INTERVALO_S: ${SENSOR_INTERVALO_S}
+  SENSOR_RUIDO_RELATIVO: ${SENSOR_RUIDO_RELATIVO}
+  SENSOR_PARTICIONADOR: ${SENSOR_PARTICIONADOR}
+  SENSOR_PROB_ANOMALIA: ${SENSOR_PROB_ANOMALIA}
+  SENSOR_ANOMALIA_TEMPERATURA_C: ${SENSOR_ANOMALIA_TEMPERATURA_C}
+  SENSOR_ANOMALIA_VIBRACAO_MM_S: ${SENSOR_ANOMALIA_VIBRACAO_MM_S}
+  SENSOR_ANOMALIA_ENERGIA_KW: ${SENSOR_ANOMALIA_ENERGIA_KW}
+  INTERVALO_ESTATISTICAS_S: ${INTERVALO_ESTATISTICAS_S}
+  LOG_LEVEL: ${LOG_LEVEL}
+
+x-sensor: &sensor
+  build: ./sensor      # cada setor gera sua imagem (camadas reaproveitadas do cache)
+  depends_on:
+    kafka-init:
+      condition: service_completed_successfully
+  stop_grace_period: 10s
+  deploy:
+    resources:
+      limits:
+        memory: 128M
+  networks:
+    - int-network
+
+services:
+
+  # ======================= Cluster Kafka =======================
+  kafka-1:
+    <<: *kafka
+    hostname: kafka-1
+    environment:
+      <<: *kafka-env
+      KAFKA_NODE_ID: 1
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-1:9092
+    volumes:
+      - kafka-1-data:/var/lib/kafka/data           # um volume por broker
+
+  kafka-2:
+    <<: *kafka
+    hostname: kafka-2
+    environment:
+      <<: *kafka-env
+      KAFKA_NODE_ID: 2
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-2:9092
+    volumes:
+      - kafka-2-data:/var/lib/kafka/data
+
+  kafka-3:
+    <<: *kafka
+    hostname: kafka-3
+    environment:
+      <<: *kafka-env
+      KAFKA_NODE_ID: 3
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-3:9092
+    volumes:
+      - kafka-3-data:/var/lib/kafka/data
+
+  # Cria o tópico dados-sensores (partições + replicação) e termina
+  kafka-init:
+    image: ${KAFKA_IMAGE}
+    depends_on:
+      kafka-1:
+        condition: service_healthy
+      kafka-2:
+        condition: service_healthy
+      kafka-3:
+        condition: service_healthy
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_BOOTSTRAP_SERVERS}
+      TOPICO: ${TOPICO}
+      TOPICO_PARTICOES: ${TOPICO_PARTICOES}
+      TOPICO_REPLICACAO: ${TOPICO_REPLICACAO}
+      TOPICO_MIN_ISR: ${TOPICO_MIN_ISR}
+      INIT_TENTATIVAS: ${INIT_TENTATIVAS}
+      INIT_ESPERA_S: ${INIT_ESPERA_S}
+      KAFKA_HEAP_OPTS: ${KAFKA_FERRAMENTAS_HEAP_OPTS}
+    entrypoint: ["/bin/sh", "-c"]
+    # Tenta criar o tópico até os 3 brokers estarem registrados no cluster
+    command:
+      - |
+        tentativa=1
+        until /opt/kafka/bin/kafka-topics.sh --bootstrap-server "$$KAFKA_BOOTSTRAP_SERVERS" \
+            --create --if-not-exists --topic "$$TOPICO" \
+            --partitions "$$TOPICO_PARTICOES" --replication-factor "$$TOPICO_REPLICACAO" \
+            --config min.insync.replicas="$$TOPICO_MIN_ISR"; do
+          if [ "$$tentativa" -ge "$$INIT_TENTATIVAS" ]; then
+            echo "não foi possível criar o tópico"; exit 1
+          fi
+          echo "cluster ainda não está pronto (tentativa $$tentativa), aguardando..."
+          tentativa=$$((tentativa + 1))
+          sleep "$$INIT_ESPERA_S"
+        done
+        /opt/kafka/bin/kafka-topics.sh --bootstrap-server "$$KAFKA_BOOTSTRAP_SERVERS" \
+          --describe --topic "$$TOPICO"
+    restart: "no"
+    networks:
+      - int-network
+
+  # ======================= Sensores (produtores) =======================
+  # Um serviço por setor da fábrica; cada container simula SENSOR_MAQUINAS
+  # máquinas daquele setor. Podem ser escalados com --scale.
+  sensor-producao:
+    <<: *sensor
+    environment:
+      <<: *sensor-env
+      SENSOR_SETOR: producao
+      SENSOR_TEMPERATURA_BASE_C: 65
+      SENSOR_VIBRACAO_BASE_MM_S: 3.5
+      SENSOR_ENERGIA_BASE_KW: 30
+
+  sensor-refrigeracao:
+    <<: *sensor
+    environment:
+      <<: *sensor-env
+      SENSOR_SETOR: refrigeracao
+      SENSOR_TEMPERATURA_BASE_C: 70
+      SENSOR_VIBRACAO_BASE_MM_S: 4.0
+      SENSOR_ENERGIA_BASE_KW: 35
+
+  sensor-empacotamento:
+    <<: *sensor
+    environment:
+      <<: *sensor-env
+      SENSOR_SETOR: empacotamento
+      SENSOR_TEMPERATURA_BASE_C: 55
+      SENSOR_VIBRACAO_BASE_MM_S: 2.5
+      SENSOR_ENERGIA_BASE_KW: 20
+
+  # ======================= Processadores (consumidores) =======================
+  # Todas as réplicas estão no mesmo grupo de consumo: o Kafka divide as
+  # partições entre elas e as redistribui quando uma entra ou sai.
+  processador:
+    build: ./processador
+    image: fabrica-processador
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_BOOTSTRAP_SERVERS}
+      TOPICO: ${TOPICO}
+      GRUPO_CONSUMO: ${GRUPO_CONSUMO}
+      ESTRATEGIA_ATRIBUICAO: ${ESTRATEGIA_ATRIBUICAO}
+      SESSION_TIMEOUT_MS: ${SESSION_TIMEOUT_MS}
+      HEARTBEAT_MS: ${HEARTBEAT_MS}
+      POLL_TIMEOUT_S: ${POLL_TIMEOUT_S}
+      LIMITE_TEMPERATURA_C: ${LIMITE_TEMPERATURA_C}
+      LIMITE_VIBRACAO_MM_S: ${LIMITE_VIBRACAO_MM_S}
+      LIMITE_ENERGIA_KW: ${LIMITE_ENERGIA_KW}
+      DB_CAMINHO: ${DB_CAMINHO}
+      DB_TIMEOUT_S: ${DB_TIMEOUT_S}
+      CONSULTA_LIMITE: ${CONSULTA_LIMITE}
+      INTERVALO_ESTATISTICAS_S: ${INTERVALO_ESTATISTICAS_S}
+      LOG_LEVEL: ${LOG_LEVEL}
+    volumes:
+      - dados-db:/data                             # SQLite compartilhado
+    stop_grace_period: 15s
+    deploy:
+      replicas: ${PROCESSADOR_REPLICAS}
+      resources:
+        limits:
+          memory: 128M
+    networks:
+      - int-network
+
+volumes:
+  kafka-1-data:
+  kafka-2-data:
+  kafka-3-data:
+  dados-db:
+
+networks:
+  # Rede interna: os componentes só se comunicam entre si
+  int-network:
+    driver: bridge
+    internal: true

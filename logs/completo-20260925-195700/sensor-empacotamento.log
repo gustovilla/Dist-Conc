@@ -1,0 +1,181 @@
+sensor-empacotamento-1  | 2026-09-25T22:48:55.890190444Z 2026-09-25 22:48:55,889 INFO [sensor] sensor b5c9818238b5 iniciado: 8 máquinas, tópico=dados-sensores, intervalo=1.0s
+sensor-empacotamento-1  | 2026-09-25T22:48:55.891031458Z 2026-09-25 22:48:55,890 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:48:55.954604064Z %4|1790376535.954|GETPID|b5c9818238b5#producer-1| [thrd:main]: Failed to acquire idempotence PID from broker kafka-2:9092/2: Broker: Coordinator load in progress: retrying
+sensor-empacotamento-1  | 2026-09-25T22:48:56.603160331Z 2026-09-25 22:48:56,601 INFO [sensor] máquina empacotamento-b5c981-m3 -> partição 3
+sensor-empacotamento-1  | 2026-09-25T22:48:56.603199489Z 2026-09-25 22:48:56,601 INFO [sensor] máquina empacotamento-b5c981-m6 -> partição 3
+sensor-empacotamento-1  | 2026-09-25T22:48:56.603206405Z 2026-09-25 22:48:56,601 INFO [sensor] máquina empacotamento-b5c981-m4 -> partição 4
+sensor-empacotamento-1  | 2026-09-25T22:48:56.603211107Z 2026-09-25 22:48:56,601 INFO [sensor] máquina empacotamento-b5c981-m5 -> partição 4
+sensor-empacotamento-1  | 2026-09-25T22:48:56.628188896Z 2026-09-25 22:48:56,626 INFO [sensor] máquina empacotamento-b5c981-m7 -> partição 0
+sensor-empacotamento-1  | 2026-09-25T22:48:56.650046931Z 2026-09-25 22:48:56,648 INFO [sensor] máquina empacotamento-b5c981-m2 -> partição 1
+sensor-empacotamento-1  | 2026-09-25T22:48:56.673377034Z 2026-09-25 22:48:56,672 INFO [sensor] máquina empacotamento-b5c981-m1 -> partição 2
+sensor-empacotamento-1  | 2026-09-25T22:48:56.673422488Z 2026-09-25 22:48:56,673 INFO [sensor] máquina empacotamento-b5c981-m8 -> partição 2
+sensor-empacotamento-1  | 2026-09-25T22:48:56.914207979Z 2026-09-25 22:48:56,912 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:48:56.914254495Z 2026-09-25 22:48:56,912 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:48:59.913771331Z 2026-09-25 22:48:59,913 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:49:00.913689244Z 2026-09-25 22:49:00,913 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:49:05.916169641Z 2026-09-25 22:49:05,913 INFO [sensor] anomalia simulada em empacotamento-b5c981-m6: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:49:05.916202948Z 2026-09-25 22:49:05,914 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:49:08.913807087Z 2026-09-25 22:49:08,913 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:49:09.913611011Z 2026-09-25 22:49:09,913 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:49:10.914377707Z 2026-09-25 22:49:10,913 INFO [sensor] anomalia simulada em empacotamento-b5c981-m5: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:49:16.914319283Z 2026-09-25 22:49:16,914 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 11, 1: 11, 2: 22, 3: 22, 4: 22}
+sensor-empacotamento-1  | 2026-09-25T22:49:26.916139013Z 2026-09-25 22:49:26,915 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:49:29.915646916Z 2026-09-25 22:49:29,915 INFO [sensor] anomalia simulada em empacotamento-b5c981-m5: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:49:36.916731872Z 2026-09-25 22:49:36,916 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:49:40.917544464Z 2026-09-25 22:49:40,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:49:43.917469206Z 2026-09-25 22:49:43,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:49:44.917885659Z 2026-09-25 22:49:44,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:49:46.917460915Z 2026-09-25 22:49:46,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m6: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:49:46.917481211Z 2026-09-25 22:49:46,917 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:49:52.917430793Z 2026-09-25 22:49:52,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:49:52.917456251Z 2026-09-25 22:49:52,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m6: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:49:55.918110601Z 2026-09-25 22:49:55,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:49:55.918132459Z 2026-09-25 22:49:55,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m7: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:49:56.917936661Z 2026-09-25 22:49:56,917 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:49:57.918123330Z 2026-09-25 22:49:57,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m7: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:50:05.918416855Z 2026-09-25 22:50:05,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:50:06.918386146Z 2026-09-25 22:50:06,918 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:50:07.906691922Z %6|1790376607.905|FAIL|b5c9818238b5#producer-1| [thrd:kafka-2:9092/bootstrap]: kafka-2:9092/2: Disconnected (after 71959ms in state UP)
+sensor-empacotamento-1  | 2026-09-25T22:50:07.919108964Z %3|1790376607.918|FAIL|b5c9818238b5#producer-1| [thrd:kafka-2:9092/bootstrap]: kafka-2:9092/2: Connect to ipv4#172.18.0.2:9092 failed: Connection refused (after 0ms in state CONNECT)
+sensor-empacotamento-1  | 2026-09-25T22:50:08.918171430Z 2026-09-25 22:50:08,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:50:09.918130369Z 2026-09-25 22:50:09,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:50:12.918087065Z 2026-09-25 22:50:12,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:50:12.918173299Z 2026-09-25 22:50:12,918 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:50:16.918298248Z 2026-09-25 22:50:16,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:50:16.918443973Z 2026-09-25 22:50:16,918 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:50:18.918045827Z 2026-09-25 22:50:18,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:50:20.918190781Z 2026-09-25 22:50:20,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:50:27.918509052Z 2026-09-25 22:50:27,918 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 11, 1: 11, 2: 22, 3: 22, 4: 22}
+sensor-empacotamento-1  | 2026-09-25T22:50:29.918305457Z 2026-09-25 22:50:29,917 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:50:35.918490207Z 2026-09-25 22:50:35,918 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:50:38.507339289Z %4|1790376638.507|FAIL|b5c9818238b5#producer-1| [thrd:kafka-2:9092/bootstrap]: kafka-2:9092/2: Connection setup timed out in state CONNECT (after 30305ms in state CONNECT)
+sensor-empacotamento-1  | 2026-09-25T22:50:38.918300561Z 2026-09-25 22:50:38,918 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 11, 1: 11, 2: 22, 3: 22, 4: 22}
+sensor-empacotamento-1  | 2026-09-25T22:50:39.918657547Z 2026-09-25 22:50:39,918 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:50:39.918687871Z 2026-09-25 22:50:39,918 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:50:47.918872664Z 2026-09-25 22:50:47,918 INFO [sensor] anomalia simulada em empacotamento-b5c981-m5: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:50:48.918835089Z 2026-09-25 22:50:48,918 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:50:50.919250247Z 2026-09-25 22:50:50,919 INFO [sensor] anomalia simulada em empacotamento-b5c981-m7: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:50:52.919308267Z 2026-09-25 22:50:52,918 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:50:58.919201360Z 2026-09-25 22:50:58,918 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:51:08.919384933Z 2026-09-25 22:51:08,919 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:51:17.920182078Z 2026-09-25 22:51:17,919 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:51:18.919983541Z 2026-09-25 22:51:18,919 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:51:18.920017169Z 2026-09-25 22:51:18,919 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:51:19.012407749Z %6|1790376679.012|FAIL|b5c9818238b5#producer-1| [thrd:kafka-1:9092/bootstrap]: kafka-1:9092/1: Disconnected (after 142551ms in state UP)
+sensor-empacotamento-1  | 2026-09-25T22:51:19.920415963Z %3|1790376679.920|FAIL|b5c9818238b5#producer-1| [thrd:kafka-1:9092/bootstrap]: kafka-1:9092/1: Failed to resolve 'kafka-1:9092': Temporary failure in name resolution (after 0ms in state CONNECT)
+sensor-empacotamento-1  | 2026-09-25T22:51:20.920990752Z %3|1790376680.920|FAIL|b5c9818238b5#producer-1| [thrd:kafka-1:9092/bootstrap]: kafka-1:9092/1: Failed to resolve 'kafka-1:9092': Temporary failure in name resolution (after 0ms in state CONNECT, 1 identical error(s) suppressed)
+sensor-empacotamento-1  | 2026-09-25T22:51:28.920252694Z 2026-09-25 22:51:28,919 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:51:30.920325429Z 2026-09-25 22:51:30,920 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:51:38.920472415Z 2026-09-25 22:51:38,920 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:51:39.920447566Z 2026-09-25 22:51:39,920 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:51:42.920760754Z 2026-09-25 22:51:42,920 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:51:48.921873569Z 2026-09-25 22:51:48,921 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:51:53.921796943Z 2026-09-25 22:51:53,921 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:51:54.921842294Z 2026-09-25 22:51:54,921 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:51:58.922199892Z 2026-09-25 22:51:58,921 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:52:02.922248277Z 2026-09-25 22:52:02,921 INFO [sensor] anomalia simulada em empacotamento-b5c981-m6: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:52:03.922109822Z 2026-09-25 22:52:03,921 INFO [sensor] anomalia simulada em empacotamento-b5c981-m5: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:52:08.922363626Z 2026-09-25 22:52:08,922 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:52:09.922452957Z 2026-09-25 22:52:09,922 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:52:11.922243021Z 2026-09-25 22:52:11,921 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:52:18.925082120Z 2026-09-25 22:52:18,924 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:52:22.925216886Z 2026-09-25 22:52:22,924 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:52:24.925349271Z 2026-09-25 22:52:24,924 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:52:28.925517799Z 2026-09-25 22:52:28,925 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:52:30.925615216Z 2026-09-25 22:52:30,925 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:52:35.925521498Z 2026-09-25 22:52:35,925 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:52:38.925596954Z 2026-09-25 22:52:38,925 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:52:45.925887584Z 2026-09-25 22:52:45,925 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:52:48.925909789Z 2026-09-25 22:52:48,925 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:52:48.925936903Z 2026-09-25 22:52:48,925 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:52:52.925806038Z 2026-09-25 22:52:52,925 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:52:57.925775183Z 2026-09-25 22:52:57,925 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:52:59.925848293Z 2026-09-25 22:52:59,925 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 11, 1: 11, 2: 22, 3: 22, 4: 22}
+sensor-empacotamento-1  | 2026-09-25T22:53:01.925988540Z 2026-09-25 22:53:01,925 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:53:04.925987169Z 2026-09-25 22:53:04,925 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:53:07.926638419Z 2026-09-25 22:53:07,926 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:53:07.926671776Z 2026-09-25 22:53:07,926 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:53:07.926680833Z 2026-09-25 22:53:07,926 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:53:09.926567962Z 2026-09-25 22:53:09,926 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:53:09.926728834Z 2026-09-25 22:53:09,926 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:53:15.926715886Z 2026-09-25 22:53:15,926 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:53:16.926663137Z 2026-09-25 22:53:16,926 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:53:16.926687463Z 2026-09-25 22:53:16,926 INFO [sensor] anomalia simulada em empacotamento-b5c981-m6: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:53:17.926685573Z 2026-09-25 22:53:17,926 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:53:19.926748899Z 2026-09-25 22:53:19,926 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:53:29.927297139Z 2026-09-25 22:53:29,926 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:53:39.927352026Z 2026-09-25 22:53:39,927 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:53:41.927347880Z 2026-09-25 22:53:41,927 INFO [sensor] anomalia simulada em empacotamento-b5c981-m5: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:53:46.927768362Z 2026-09-25 22:53:46,927 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:53:49.927634849Z 2026-09-25 22:53:49,927 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:53:49.927670194Z 2026-09-25 22:53:49,927 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:53:50.927435328Z 2026-09-25 22:53:50,927 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:53:52.928176940Z 2026-09-25 22:53:52,927 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:53:52.928205352Z 2026-09-25 22:53:52,927 INFO [sensor] anomalia simulada em empacotamento-b5c981-m6: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:53:53.928107809Z 2026-09-25 22:53:53,927 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:53:53.928130867Z 2026-09-25 22:53:53,927 INFO [sensor] anomalia simulada em empacotamento-b5c981-m5: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:53:56.928359243Z 2026-09-25 22:53:56,928 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:53:58.928508035Z 2026-09-25 22:53:58,928 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:53:59.928704730Z 2026-09-25 22:53:59,928 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:53:59.928734376Z 2026-09-25 22:53:59,928 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:54:01.928557098Z 2026-09-25 22:54:01,928 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:54:02.928641036Z 2026-09-25 22:54:02,928 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:54:08.929294614Z 2026-09-25 22:54:08,928 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:54:09.928766148Z 2026-09-25 22:54:09,928 INFO [sensor] anomalia simulada em empacotamento-b5c981-m6: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:54:09.928792540Z 2026-09-25 22:54:09,928 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:54:10.928791066Z 2026-09-25 22:54:10,928 INFO [sensor] anomalia simulada em empacotamento-b5c981-m5: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:54:17.929091261Z 2026-09-25 22:54:17,928 INFO [sensor] anomalia simulada em empacotamento-b5c981-m5: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:54:17.929128581Z 2026-09-25 22:54:17,928 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:54:19.929083943Z 2026-09-25 22:54:19,928 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:54:21.928959067Z 2026-09-25 22:54:21,928 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:54:28.929620181Z 2026-09-25 22:54:28,929 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:54:29.929738487Z 2026-09-25 22:54:29,929 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:54:30.929735469Z 2026-09-25 22:54:30,929 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:54:37.929849460Z 2026-09-25 22:54:37,929 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:54:39.929974180Z 2026-09-25 22:54:39,929 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:54:41.930054800Z 2026-09-25 22:54:41,929 INFO [sensor] anomalia simulada em empacotamento-b5c981-m6: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:54:46.930174044Z 2026-09-25 22:54:46,929 INFO [sensor] anomalia simulada em empacotamento-b5c981-m5: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:54:49.930244368Z 2026-09-25 22:54:49,930 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:54:57.930445798Z 2026-09-25 22:54:57,930 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:54:59.931145524Z 2026-09-25 22:54:59,930 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:55:07.931244544Z 2026-09-25 22:55:07,930 INFO [sensor] anomalia simulada em empacotamento-b5c981-m6: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:55:09.931260116Z 2026-09-25 22:55:09,930 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:55:19.931624880Z 2026-09-25 22:55:19,931 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:55:23.931345216Z 2026-09-25 22:55:23,931 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:55:23.931384910Z 2026-09-25 22:55:23,931 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:55:24.931354810Z 2026-09-25 22:55:24,931 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:55:24.931378764Z 2026-09-25 22:55:24,931 INFO [sensor] anomalia simulada em empacotamento-b5c981-m6: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:55:26.931545478Z 2026-09-25 22:55:26,931 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:55:29.932121212Z 2026-09-25 22:55:29,931 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:55:35.932770198Z 2026-09-25 22:55:35,932 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:55:39.932963560Z 2026-09-25 22:55:39,932 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:55:40.933222927Z 2026-09-25 22:55:40,932 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:55:41.933011626Z 2026-09-25 22:55:41,932 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:55:42.932916359Z 2026-09-25 22:55:42,932 INFO [sensor] anomalia simulada em empacotamento-b5c981-m5: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:55:49.933431701Z 2026-09-25 22:55:49,933 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:55:56.934192854Z 2026-09-25 22:55:56,933 INFO [sensor] anomalia simulada em empacotamento-b5c981-m1: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:55:56.934225477Z 2026-09-25 22:55:56,933 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:55:58.934085462Z 2026-09-25 22:55:58,933 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:55:58.934117477Z 2026-09-25 22:55:58,933 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:55:58.934126158Z 2026-09-25 22:55:58,934 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:55:59.934054678Z 2026-09-25 22:55:59,933 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:55:59.934083909Z 2026-09-25 22:55:59,933 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:56:09.934809185Z 2026-09-25 22:56:09,934 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:56:18.934900013Z 2026-09-25 22:56:18,934 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:56:19.934933926Z 2026-09-25 22:56:19,934 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:56:24.935242318Z 2026-09-25 22:56:24,934 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:56:28.935231268Z 2026-09-25 22:56:28,935 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:56:29.935202439Z 2026-09-25 22:56:29,935 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:56:38.935471003Z 2026-09-25 22:56:38,935 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:56:39.935620118Z 2026-09-25 22:56:39,935 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:56:39.935650706Z 2026-09-25 22:56:39,935 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:56:42.935334933Z 2026-09-25 22:56:42,935 INFO [sensor] anomalia simulada em empacotamento-b5c981-m3: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:56:49.935599143Z 2026-09-25 22:56:49,935 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:56:50.935571621Z 2026-09-25 22:56:50,935 INFO [sensor] anomalia simulada em empacotamento-b5c981-m6: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:56:51.935553733Z 2026-09-25 22:56:51,935 INFO [sensor] anomalia simulada em empacotamento-b5c981-m2: temperatura_c
+sensor-empacotamento-1  | 2026-09-25T22:56:53.935602057Z 2026-09-25 22:56:53,935 INFO [sensor] anomalia simulada em empacotamento-b5c981-m5: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:56:53.935637083Z 2026-09-25 22:56:53,935 INFO [sensor] anomalia simulada em empacotamento-b5c981-m8: energia_kw
+sensor-empacotamento-1  | 2026-09-25T22:56:58.935767560Z 2026-09-25 22:56:58,935 INFO [sensor] anomalia simulada em empacotamento-b5c981-m6: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:56:59.935870101Z 2026-09-25 22:56:59,935 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25T22:57:00.935667864Z 2026-09-25 22:57:00,935 INFO [sensor] anomalia simulada em empacotamento-b5c981-m4: vibracao_mm_s
+sensor-empacotamento-1  | 2026-09-25T22:57:00.935695460Z 2026-09-25 22:57:00,935 INFO [sensor] anomalia simulada em empacotamento-b5c981-m5: energia_kw

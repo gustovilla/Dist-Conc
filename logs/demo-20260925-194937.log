@@ -1,0 +1,750 @@
+Demonstração iniciada em Fri Sep 25 19:49:37 -03 2026. Saída gravada em logs/demo-20260925-194937.log
+
+========== [19:49:37] 1. ESTADO INICIAL ==========
+
+========== [19:49:37] Containers ==========
+NAME                             STATE     STATUS
+fabrica-kafka-1-1                running   Up 58 seconds (healthy)
+fabrica-kafka-2-1                running   Up 58 seconds (healthy)
+fabrica-kafka-3-1                running   Up 58 seconds (healthy)
+fabrica-kafka-init-1             exited    Exited (0) 42 seconds ago
+fabrica-processador-1            running   Up 42 seconds
+fabrica-processador-2            running   Up 41 seconds
+fabrica-processador-3            running   Up 41 seconds
+fabrica-sensor-empacotamento-1   running   Up 42 seconds
+fabrica-sensor-producao-1        running   Up 42 seconds
+fabrica-sensor-refrigeracao-1    running   Up 42 seconds
+
+========== [19:49:37] Tópico dados-sensores: líder e réplicas em sincronia (Isr) por partição ==========
+Topic: dados-sensores	TopicId: bpNag2Q4SrSHzixJwrCS8Q	PartitionCount: 6	ReplicationFactor: 3	Configs: min.insync.replicas=2
+	Topic: dados-sensores	Partition: 0	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 1	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 2	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 3	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 4	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 5	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1	Elr: 	LastKnownElr: 
+
+========== [19:49:39] Grupo processadores: processador (CLIENT-ID) responsável por cada partição ==========
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+processadores   dados-sensores  1          124             138             14              03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  3          166             184             18              03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  5          123             138             15              2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+processadores   dados-sensores  4          164             184             20              2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+processadores   dados-sensores  0          180             184             4               3b4721499e1b-df8379ad-5fa1-4596-9598-c3d069e8ac8a /172.18.0.5     3b4721499e1b
+processadores   dados-sensores  2          270             276             6               3b4721499e1b-df8379ad-5fa1-4596-9598-c3d069e8ac8a /172.18.0.5     3b4721499e1b
+... aguardando 20s para acumular estatísticas
+sensor-refrigeracao-1  | 2026-09-25 22:49:47,053 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25 22:49:57,053 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+processador-1          | 2026-09-25 22:49:46,926 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 2] processadas=100 (10.0 msg/s) alertas=2 duplicadas=0 por_particao={0: 40, 2: 60}
+processador-3          | 2026-09-25 22:49:47,065 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[4, 5] processadas=74 (7.3 msg/s) alertas=3 duplicadas=0 por_particao={4: 41, 5: 33}
+processador-3          | 2026-09-25 22:49:57,067 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[4, 5] processadas=70 (7.0 msg/s) alertas=2 duplicadas=0 por_particao={4: 40, 5: 30}
+processador-2          | 2026-09-25 22:49:47,932 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[1, 3] processadas=69 (6.9 msg/s) alertas=3 duplicadas=0 por_particao={1: 30, 3: 39}
+processador-2          | 2026-09-25 22:49:57,933 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[1, 3] processadas=71 (7.1 msg/s) alertas=1 duplicadas=0 por_particao={1: 30, 3: 41}
+processador-1          | 2026-09-25 22:49:56,927 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 2] processadas=100 (10.0 msg/s) alertas=3 duplicadas=0 por_particao={0: 39, 2: 61}
+sensor-empacotamento-1  | 2026-09-25 22:49:46,917 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25 22:49:56,917 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-producao-1       | 2026-09-25 22:49:45,975 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1       | 2026-09-25 22:49:55,975 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+
+========== [19:50:01] 2. FALHA DE BROKER COMUM (NÃO CONTROLLER) ==========
+
+========== [19:50:05] Antes da falha: líderes e réplicas (controller ativo: kafka-1) ==========
+Topic: dados-sensores	TopicId: bpNag2Q4SrSHzixJwrCS8Q	PartitionCount: 6	ReplicationFactor: 3	Configs: min.insync.replicas=2
+	Topic: dados-sensores	Partition: 0	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 1	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 2	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 3	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 4	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 5	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1	Elr: 	LastKnownElr: 
+
+========== [19:50:07] Derrubando kafka-2 (docker compose kill = queda abrupta) ==========
+ Container fabrica-kafka-2-1  Killing
+ Container fabrica-kafka-2-1  Killed
+... aguardando 20s para o cluster eleger novos líderes
+
+========== [19:50:28] Depois da falha: containers ==========
+NAME                             STATE     STATUS
+fabrica-kafka-1-1                running   Up About a minute (healthy)
+fabrica-kafka-2-1                exited    Exited (137) 20 seconds ago
+fabrica-kafka-3-1                running   Up About a minute (healthy)
+fabrica-kafka-init-1             exited    Exited (0) About a minute ago
+fabrica-processador-1            running   Up About a minute
+fabrica-processador-2            running   Up About a minute
+fabrica-processador-3            running   Up About a minute
+fabrica-sensor-empacotamento-1   running   Up About a minute
+fabrica-sensor-producao-1        running   Up About a minute
+fabrica-sensor-refrigeracao-1    running   Up About a minute
+
+========== [19:50:28] Depois da falha: líderes e réplicas (kafka-2 não aparece mais no Isr) ==========
+controller ativo agora: kafka-1
+[2026-09-25 22:50:41,637] WARN Couldn't resolve server kafka-2:9092 from bootstrap.servers as DNS resolution failed for kafka-2 (org.apache.kafka.clients.ClientUtils)
+Topic: dados-sensores	TopicId: bpNag2Q4SrSHzixJwrCS8Q	PartitionCount: 6	ReplicationFactor: 3	Configs: min.insync.replicas=2
+	Topic: dados-sensores	Partition: 0	Leader: 3	Replicas: 2,3,1	Isr: 3,1	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 1	Leader: 3	Replicas: 3,1,2	Isr: 3,1	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 2	Leader: 1	Replicas: 1,2,3	Isr: 1,3	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 3	Leader: 3	Replicas: 3,1,2	Isr: 3,1	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 4	Leader: 1	Replicas: 1,2,3	Isr: 1,3	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 5	Leader: 3	Replicas: 2,3,1	Isr: 3,1	Elr: 	LastKnownElr: 
+
+========== [19:50:42] Depois da falha: grupo de consumo continua atendido ==========
+[2026-09-25 22:50:48,508] WARN Couldn't resolve server kafka-2:9092 from bootstrap.servers as DNS resolution failed for kafka-2 (org.apache.kafka.clients.ClientUtils)
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+processadores   dados-sensores  1          334             339             5               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  3          446             452             6               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  5          333             339             6               2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+processadores   dados-sensores  4          444             452             8               2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+processadores   dados-sensores  0          440             452             12              3b4721499e1b-df8379ad-5fa1-4596-9598-c3d069e8ac8a /172.18.0.5     3b4721499e1b
+processadores   dados-sensores  2          660             678             18              3b4721499e1b-df8379ad-5fa1-4596-9598-c3d069e8ac8a /172.18.0.5     3b4721499e1b
+
+========== [19:50:49] Sensores e processadores desde a queda (continuam funcionando) ==========
+sensor-refrigeracao-1  | 2026-09-25 22:50:17,053 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25 22:50:27,054 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25 22:50:37,054 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1  | 2026-09-25 22:50:47,055 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+processador-3          | 2026-09-25 22:50:18,069 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[4, 5] processadas=77 (7.7 msg/s) alertas=0 duplicadas=0 por_particao={4: 44, 5: 33}
+processador-3          | 2026-09-25 22:50:28,072 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[4, 5] processadas=70 (7.0 msg/s) alertas=3 duplicadas=0 por_particao={4: 40, 5: 30}
+processador-3          | 2026-09-25 22:50:38,927 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[4, 5] processadas=71 (6.5 msg/s) alertas=0 duplicadas=0 por_particao={4: 41, 5: 30}
+processador-3          | 2026-09-25 22:50:48,984 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[4, 5] processadas=72 (7.2 msg/s) alertas=4 duplicadas=0 por_particao={4: 42, 5: 30}
+processador-2          | 2026-09-25 22:50:18,070 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[1, 3] processadas=76 (7.6 msg/s) alertas=3 duplicadas=0 por_particao={1: 32, 3: 44}
+processador-2          | 2026-09-25 22:50:28,928 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[1, 3] processadas=72 (6.6 msg/s) alertas=2 duplicadas=0 por_particao={1: 32, 3: 40}
+processador-2          | 2026-09-25 22:50:39,064 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[1, 3] processadas=73 (7.2 msg/s) alertas=3 duplicadas=0 por_particao={1: 31, 3: 42}
+processador-2          | 2026-09-25 22:50:49,066 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[1, 3] processadas=70 (7.0 msg/s) alertas=1 duplicadas=0 por_particao={1: 30, 3: 40}
+sensor-empacotamento-1  | 2026-09-25 22:50:16,918 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25 22:50:27,918 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 11, 1: 11, 2: 22, 3: 22, 4: 22}
+sensor-empacotamento-1  | 2026-09-25 22:50:38,918 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 11, 1: 11, 2: 22, 3: 22, 4: 22}
+sensor-empacotamento-1  | 2026-09-25 22:50:48,918 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-producao-1       | 2026-09-25 22:50:16,975 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=88 (8.0 msg/s) falhas=0 por_particao={0: 11, 2: 33, 4: 11, 5: 33}
+sensor-producao-1       | 2026-09-25 22:50:26,975 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1       | 2026-09-25 22:50:36,976 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1       | 2026-09-25 22:50:46,976 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+processador-1           | 2026-09-25 22:50:16,931 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 2] processadas=101 (10.1 msg/s) alertas=3 duplicadas=0 por_particao={0: 40, 2: 61}
+processador-1           | 2026-09-25 22:50:26,983 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 2] processadas=101 (10.0 msg/s) alertas=2 duplicadas=0 por_particao={0: 41, 2: 60}
+processador-1           | 2026-09-25 22:50:36,988 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 2] processadas=100 (10.0 msg/s) alertas=2 duplicadas=0 por_particao={0: 39, 2: 61}
+processador-1           | 2026-09-25 22:50:47,066 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 2] processadas=104 (10.3 msg/s) alertas=4 duplicadas=0 por_particao={0: 41, 2: 63}
+
+========== [19:50:49] 3. RECUPERAÇÃO DO BROKER ==========
+
+========== [19:50:50] Religando kafka-2 ==========
+ Container fabrica-kafka-2-1  Starting
+ Container fabrica-kafka-2-1  Started
+... aguardando 20s para o(s) broker(s) sincronizar(em) as réplicas
+
+========== [19:51:10] Depois da recuperação: kafka-2 de volta ao Isr ==========
+NAME                             STATE     STATUS
+fabrica-kafka-1-1                running   Up 2 minutes (healthy)
+fabrica-kafka-2-1                running   Up 20 seconds (healthy)
+fabrica-kafka-3-1                running   Up 2 minutes (healthy)
+fabrica-kafka-init-1             exited    Exited (0) 2 minutes ago
+fabrica-processador-1            running   Up 2 minutes
+fabrica-processador-2            running   Up 2 minutes
+fabrica-processador-3            running   Up 2 minutes
+fabrica-sensor-empacotamento-1   running   Up 2 minutes
+fabrica-sensor-producao-1        running   Up 2 minutes
+fabrica-sensor-refrigeracao-1    running   Up 2 minutes
+Topic: dados-sensores	TopicId: bpNag2Q4SrSHzixJwrCS8Q	PartitionCount: 6	ReplicationFactor: 3	Configs: min.insync.replicas=2
+	Topic: dados-sensores	Partition: 0	Leader: 3	Replicas: 2,3,1	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 1	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 2	Leader: 1	Replicas: 1,2,3	Isr: 1,3,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 3	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 4	Leader: 1	Replicas: 1,2,3	Isr: 1,3,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 5	Leader: 3	Replicas: 2,3,1	Isr: 3,1,2	Elr: 	LastKnownElr: 
+
+========== [19:51:12] 4. FALHA DO BROKER CONTROLLER ==========
+
+========== [19:51:16] Antes da falha: líderes e réplicas (controller ativo: kafka-1) ==========
+Topic: dados-sensores	TopicId: bpNag2Q4SrSHzixJwrCS8Q	PartitionCount: 6	ReplicationFactor: 3	Configs: min.insync.replicas=2
+	Topic: dados-sensores	Partition: 0	Leader: 3	Replicas: 2,3,1	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 1	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 2	Leader: 1	Replicas: 1,2,3	Isr: 1,3,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 3	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 4	Leader: 1	Replicas: 1,2,3	Isr: 1,3,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 5	Leader: 3	Replicas: 2,3,1	Isr: 3,1,2	Elr: 	LastKnownElr: 
+
+========== [19:51:18] Derrubando kafka-1 (docker compose kill = queda abrupta) ==========
+ Container fabrica-kafka-1-1  Killing
+ Container fabrica-kafka-1-1  Killed
+... aguardando 20s para o cluster eleger novos líderes
+
+========== [19:51:39] Depois da falha: containers ==========
+NAME                             STATE     STATUS
+fabrica-kafka-1-1                exited    Exited (137) 20 seconds ago
+fabrica-kafka-2-1                running   Up 48 seconds (healthy)
+fabrica-kafka-3-1                running   Up 3 minutes (healthy)
+fabrica-kafka-init-1             exited    Exited (0) 2 minutes ago
+fabrica-processador-1            running   Up 2 minutes
+fabrica-processador-2            running   Up 2 minutes
+fabrica-processador-3            running   Up 2 minutes
+fabrica-sensor-empacotamento-1   running   Up 2 minutes
+fabrica-sensor-producao-1        running   Up 2 minutes
+fabrica-sensor-refrigeracao-1    running   Up 2 minutes
+
+========== [19:51:39] Depois da falha: líderes e réplicas (kafka-1 não aparece mais no Isr) ==========
+controller ativo agora: kafka-3
+[2026-09-25 22:51:58,372] WARN Couldn't resolve server kafka-1:9092 from bootstrap.servers as DNS resolution failed for kafka-1 (org.apache.kafka.clients.ClientUtils)
+Topic: dados-sensores	TopicId: bpNag2Q4SrSHzixJwrCS8Q	PartitionCount: 6	ReplicationFactor: 3	Configs: min.insync.replicas=2
+	Topic: dados-sensores	Partition: 0	Leader: 3	Replicas: 2,3,1	Isr: 3,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 1	Leader: 3	Replicas: 3,1,2	Isr: 3,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 2	Leader: 2	Replicas: 1,2,3	Isr: 3,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 3	Leader: 3	Replicas: 3,1,2	Isr: 3,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 4	Leader: 2	Replicas: 1,2,3	Isr: 3,2	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 5	Leader: 3	Replicas: 2,3,1	Isr: 3,2	Elr: 	LastKnownElr: 
+
+========== [19:51:59] Depois da falha: grupo de consumo continua atendido ==========
+[2026-09-25 22:52:05,640] WARN Couldn't resolve server kafka-1:9092 from bootstrap.servers as DNS resolution failed for kafka-1 (org.apache.kafka.clients.ClientUtils)
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+processadores   dados-sensores  1          561             571             10              03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  3          748             762             14              03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  5          558             570             12              2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+processadores   dados-sensores  4          744             762             18              2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+processadores   dados-sensores  0          760             762             2               3b4721499e1b-df8379ad-5fa1-4596-9598-c3d069e8ac8a /172.18.0.5     3b4721499e1b
+processadores   dados-sensores  2          1140            1142            2               3b4721499e1b-df8379ad-5fa1-4596-9598-c3d069e8ac8a /172.18.0.5     3b4721499e1b
+
+========== [19:52:06] Sensores e processadores desde a queda (continuam funcionando) ==========
+sensor-empacotamento-1  | 2026-09-25 22:51:38,920 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25 22:51:48,921 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-empacotamento-1  | 2026-09-25 22:51:58,921 INFO [sensor] ESTATISTICA sensor=b5c9818238b5 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 1: 10, 2: 20, 3: 20, 4: 20}
+sensor-producao-1       | 2026-09-25 22:51:36,977 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=108 (10.8 msg/s) falhas=0 por_particao={0: 10, 2: 51, 4: 17, 5: 30}
+sensor-producao-1       | 2026-09-25 22:51:46,977 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-producao-1       | 2026-09-25 22:51:56,977 INFO [sensor] ESTATISTICA sensor=fd72eef2878d entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 10, 2: 30, 4: 10, 5: 30}
+sensor-refrigeracao-1   | 2026-09-25 22:51:38,057 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1   | 2026-09-25 22:51:48,058 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+sensor-refrigeracao-1   | 2026-09-25 22:51:58,061 INFO [sensor] ESTATISTICA sensor=4594d76a9f81 entregues=80 (8.0 msg/s) falhas=0 por_particao={0: 20, 1: 20, 2: 10, 3: 20, 4: 10}
+processador-1           | 2026-09-25 22:51:37,936 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 2] processadas=149 (14.9 msg/s) alertas=5 duplicadas=0 por_particao={0: 39, 2: 110}
+processador-1           | 2026-09-25 22:51:47,942 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 2] processadas=102 (10.2 msg/s) alertas=1 duplicadas=0 por_particao={0: 41, 2: 61}
+processador-1           | 2026-09-25 22:51:57,985 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 2] processadas=101 (10.1 msg/s) alertas=0 duplicadas=0 por_particao={0: 40, 2: 61}
+processador-2           | 2026-09-25 22:51:40,932 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[1, 3] processadas=71 (7.1 msg/s) alertas=2 duplicadas=0 por_particao={1: 30, 3: 41}
+processador-2           | 2026-09-25 22:51:50,932 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[1, 3] processadas=70 (7.0 msg/s) alertas=1 duplicadas=0 por_particao={1: 30, 3: 40}
+processador-2           | 2026-09-25 22:52:01,069 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[1, 3] processadas=71 (7.0 msg/s) alertas=3 duplicadas=0 por_particao={1: 30, 3: 41}
+processador-3           | 2026-09-25 22:51:40,929 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[4, 5] processadas=71 (6.5 msg/s) alertas=0 duplicadas=0 por_particao={4: 41, 5: 30}
+processador-3           | 2026-09-25 22:51:50,930 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[4, 5] processadas=70 (7.0 msg/s) alertas=1 duplicadas=0 por_particao={4: 40, 5: 30}
+processador-3           | 2026-09-25 22:52:00,930 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[4, 5] processadas=70 (7.0 msg/s) alertas=3 duplicadas=0 por_particao={4: 40, 5: 30}
+
+========== [19:52:06] 5. RECUPERAÇÃO DO BROKER ==========
+
+========== [19:52:07] Religando kafka-1 ==========
+ Container fabrica-kafka-1-1  Starting
+ Container fabrica-kafka-1-1  Started
+... aguardando 20s para o(s) broker(s) sincronizar(em) as réplicas
+
+========== [19:52:27] Depois da recuperação: kafka-1 de volta ao Isr ==========
+NAME                             STATE     STATUS
+fabrica-kafka-1-1                running   Up 20 seconds (healthy)
+fabrica-kafka-2-1                running   Up About a minute (healthy)
+fabrica-kafka-3-1                running   Up 3 minutes (healthy)
+fabrica-kafka-init-1             exited    Exited (0) 3 minutes ago
+fabrica-processador-1            running   Up 3 minutes
+fabrica-processador-2            running   Up 3 minutes
+fabrica-processador-3            running   Up 3 minutes
+fabrica-sensor-empacotamento-1   running   Up 3 minutes
+fabrica-sensor-producao-1        running   Up 3 minutes
+fabrica-sensor-refrigeracao-1    running   Up 3 minutes
+Topic: dados-sensores	TopicId: bpNag2Q4SrSHzixJwrCS8Q	PartitionCount: 6	ReplicationFactor: 3	Configs: min.insync.replicas=2
+	Topic: dados-sensores	Partition: 0	Leader: 3	Replicas: 2,3,1	Isr: 3,2,1	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 1	Leader: 3	Replicas: 3,1,2	Isr: 3,2,1	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 2	Leader: 2	Replicas: 1,2,3	Isr: 3,2,1	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 3	Leader: 3	Replicas: 3,1,2	Isr: 3,2,1	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 4	Leader: 2	Replicas: 1,2,3	Isr: 3,2,1	Elr: 	LastKnownElr: 
+	Topic: dados-sensores	Partition: 5	Leader: 3	Replicas: 2,3,1	Isr: 3,2,1	Elr: 	LastKnownElr: 
+
+========== [19:52:30] 6. FALHA DE PROCESSADOR (queda abrupta) ==========
+
+========== [19:52:30] Antes da falha: distribuição das partições ==========
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+processadores   dados-sensores  1          651             651             0               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  3          868             868             0               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  5          648             651             3               2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+processadores   dados-sensores  4          864             868             4               2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+processadores   dados-sensores  0          860             868             8               3b4721499e1b-df8379ad-5fa1-4596-9598-c3d069e8ac8a /172.18.0.5     3b4721499e1b
+processadores   dados-sensores  2          1290            1302            12              3b4721499e1b-df8379ad-5fa1-4596-9598-c3d069e8ac8a /172.18.0.5     3b4721499e1b
+
+========== [19:52:32] Derrubando fabrica-processador-1 (id nos logs: 3b4721499e1b) com docker kill ==========
+O coordenador do grupo só detecta a queda após session.timeout.ms=10000ms
+... aguardando 20s para o rebalanço
+
+========== [19:52:53] Depois da falha: partições de 3b4721499e1b assumidas pelos outros processadores ==========
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+processadores   dados-sensores  1          711             718             7               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  3          948             958             10              03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  2          1422            1439            17              03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  5          708             720             12              2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+processadores   dados-sensores  4          944             959             15              2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+processadores   dados-sensores  0          944             958             14              2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+
+========== [19:52:55] Eventos de rebalanço registrados nos logs ==========
+processador-2  | 2026-09-25 22:52:44,729 INFO [processador] REBALANCO processador=03ebfdfe1e89 partições atribuidas: [2] -> responsável por [1, 2, 3]
+processador-3  | 2026-09-25 22:52:44,729 INFO [processador] REBALANCO processador=2ff87803d62b partições atribuidas: [0] -> responsável por [0, 4, 5]
+
+========== [19:52:55] 7. ELASTICIDADE: 6 PROCESSADORES ==========
+
+========== [19:52:55] Escalando processador para 6 réplica(s) ==========
+ Container fabrica-processador-2  Running
+ Container fabrica-processador-3  Running
+ Container fabrica-processador-6  Creating
+ Container fabrica-processador-5  Creating
+ Container fabrica-processador-4  Creating
+ Container fabrica-processador-5  Created
+ Container fabrica-processador-6  Created
+ Container fabrica-processador-4  Created
+ Container fabrica-processador-5  Starting
+ Container fabrica-processador-5  Started
+ Container fabrica-processador-6  Starting
+ Container fabrica-processador-6  Started
+ Container fabrica-processador-4  Starting
+ Container fabrica-processador-4  Started
+ Container fabrica-processador-1  Starting
+ Container fabrica-processador-1  Started
+... aguardando 20s para o rebalanço e novas estatísticas
+
+========== [19:53:17] Containers ==========
+NAME                             STATE     STATUS
+fabrica-kafka-1-1                running   Up About a minute (healthy)
+fabrica-kafka-2-1                running   Up 2 minutes (healthy)
+fabrica-kafka-3-1                running   Up 4 minutes (healthy)
+fabrica-kafka-init-1             exited    Exited (0) 4 minutes ago
+fabrica-processador-1            running   Up 20 seconds
+fabrica-processador-2            running   Up 4 minutes
+fabrica-processador-3            running   Up 4 minutes
+fabrica-processador-4            running   Up 20 seconds
+fabrica-processador-5            running   Up 21 seconds
+fabrica-processador-6            running   Up 20 seconds
+fabrica-sensor-empacotamento-1   running   Up 4 minutes
+fabrica-sensor-producao-1        running   Up 4 minutes
+fabrica-sensor-refrigeracao-1    running   Up 4 minutes
+
+========== [19:53:17] Distribuição das partições entre os processadores ==========
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+processadores   dados-sensores  4          1047            1056            9               96f00a0bfaf1-be0257a3-a204-452e-b0b6-15bc64cc96e3 /172.18.0.12    96f00a0bfaf1
+processadores   dados-sensores  3          1048            1056            8               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  5          783             792             9               2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+processadores   dados-sensores  0          1044            1056            12              5d5e5f56bd76-bdb03652-49a2-4913-b42c-574414673bcf /172.18.0.11    5d5e5f56bd76
+processadores   dados-sensores  1          786             792             6               3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+processadores   dados-sensores  2          1566            1584            18              f1d14369fdfd-13b94ed9-4234-428e-940d-2677eba2650d /172.18.0.5     f1d14369fdfd
+
+========== [19:53:19] Rebalanços e carga por processador desde a mudança ==========
+processador-4  | 2026-09-25 22:52:59,770 INFO [processador] REBALANCO processador=96f00a0bfaf1 partições atribuidas: [] -> responsável por []
+processador-4  | 2026-09-25 22:53:02,784 INFO [processador] REBALANCO processador=96f00a0bfaf1 partições atribuidas: [4] -> responsável por [4]
+processador-4  | 2026-09-25 22:53:07,089 INFO [processador] ESTATISTICA processador=96f00a0bfaf1 partições=[4] processadas=32 (3.2 msg/s) alertas=2 duplicadas=0 por_particao={4: 32}
+processador-4  | 2026-09-25 22:53:17,937 INFO [processador] ESTATISTICA processador=96f00a0bfaf1 partições=[4] processadas=41 (3.8 msg/s) alertas=2 duplicadas=0 por_particao={4: 41}
+processador-3  | 2026-09-25 22:52:51,087 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[0, 4, 5] processadas=152 (15.2 msg/s) alertas=6 duplicadas=9 por_particao={0: 82, 4: 40, 5: 30}
+processador-3  | 2026-09-25 22:52:56,756 INFO [processador] REBALANCO processador=2ff87803d62b partições revogadas: [0] -> responsável por [4, 5]
+processador-3  | 2026-09-25 22:52:56,765 INFO [processador] REBALANCO processador=2ff87803d62b partições atribuidas: [] -> responsável por [4, 5]
+processador-3  | 2026-09-25 22:52:59,778 INFO [processador] REBALANCO processador=2ff87803d62b partições revogadas: [4] -> responsável por [5]
+processador-3  | 2026-09-25 22:52:59,787 INFO [processador] REBALANCO processador=2ff87803d62b partições atribuidas: [] -> responsável por [5]
+processador-3  | 2026-09-25 22:53:01,986 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[5] processadas=85 (7.8 msg/s) alertas=2 duplicadas=0 por_particao={0: 22, 4: 32, 5: 31}
+processador-3  | 2026-09-25 22:53:02,784 INFO [processador] REBALANCO processador=2ff87803d62b partições atribuidas: [] -> responsável por [5]
+processador-3  | 2026-09-25 22:53:11,992 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[5] processadas=30 (3.0 msg/s) alertas=2 duplicadas=0 por_particao={5: 30}
+processador-5  | 2026-09-25 22:52:56,756 INFO [processador] REBALANCO processador=f1d14369fdfd partições atribuidas: [] -> responsável por []
+processador-5  | 2026-09-25 22:52:59,771 INFO [processador] REBALANCO processador=f1d14369fdfd partições atribuidas: [] -> responsável por []
+processador-5  | 2026-09-25 22:53:02,785 INFO [processador] REBALANCO processador=f1d14369fdfd partições atribuidas: [2] -> responsável por [2]
+processador-5  | 2026-09-25 22:53:06,938 INFO [processador] ESTATISTICA processador=f1d14369fdfd partições=[2] processadas=43 (4.1 msg/s) alertas=1 duplicadas=0 por_particao={2: 43}
+processador-5  | 2026-09-25 22:53:16,993 INFO [processador] ESTATISTICA processador=f1d14369fdfd partições=[2] processadas=62 (6.2 msg/s) alertas=2 duplicadas=0 por_particao={2: 62}
+processador-6  | 2026-09-25 22:52:59,771 INFO [processador] REBALANCO processador=5d5e5f56bd76 partições atribuidas: [0] -> responsável por [0]
+processador-6  | 2026-09-25 22:53:02,784 INFO [processador] REBALANCO processador=5d5e5f56bd76 partições atribuidas: [] -> responsável por [0]
+processador-6  | 2026-09-25 22:53:06,938 INFO [processador] ESTATISTICA processador=5d5e5f56bd76 partições=[0] processadas=41 (4.1 msg/s) alertas=1 duplicadas=0 por_particao={0: 41}
+processador-6  | 2026-09-25 22:53:16,990 INFO [processador] ESTATISTICA processador=5d5e5f56bd76 partições=[0] processadas=41 (4.1 msg/s) alertas=1 duplicadas=0 por_particao={0: 41}
+processador-1  | 2026-09-25 22:52:59,771 INFO [processador] REBALANCO processador=3b4721499e1b partições atribuidas: [1] -> responsável por [1]
+processador-1  | 2026-09-25 22:53:02,784 INFO [processador] REBALANCO processador=3b4721499e1b partições atribuidas: [] -> responsável por [1]
+processador-1  | 2026-09-25 22:53:07,938 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[1] processadas=34 (3.2 msg/s) alertas=1 duplicadas=0 por_particao={1: 34}
+processador-1  | 2026-09-25 22:53:18,090 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[1] processadas=31 (3.1 msg/s) alertas=1 duplicadas=0 por_particao={1: 31}
+processador-2  | 2026-09-25 22:52:51,935 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[1, 2, 3] processadas=196 (19.6 msg/s) alertas=1 duplicadas=14 por_particao={1: 29, 2: 127, 3: 40}
+processador-2  | 2026-09-25 22:52:56,765 INFO [processador] REBALANCO processador=03ebfdfe1e89 partições revogadas: [1] -> responsável por [2, 3]
+processador-2  | 2026-09-25 22:52:56,773 INFO [processador] REBALANCO processador=03ebfdfe1e89 partições atribuidas: [] -> responsável por [2, 3]
+processador-2  | 2026-09-25 22:52:59,779 INFO [processador] REBALANCO processador=03ebfdfe1e89 partições revogadas: [2] -> responsável por [3]
+processador-2  | 2026-09-25 22:52:59,787 INFO [processador] REBALANCO processador=03ebfdfe1e89 partições atribuidas: [] -> responsável por [3]
+processador-2  | 2026-09-25 22:53:01,938 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[3] processadas=103 (10.3 msg/s) alertas=4 duplicadas=0 por_particao={1: 15, 2: 47, 3: 41}
+processador-2  | 2026-09-25 22:53:02,784 INFO [processador] REBALANCO processador=03ebfdfe1e89 partições atribuidas: [] -> responsável por [3]
+processador-2  | 2026-09-25 22:53:12,090 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[3] processadas=42 (4.1 msg/s) alertas=0 duplicadas=0 por_particao={3: 42}
+
+========== [19:53:20] 8. ELASTICIDADE: 8 PROCESSADORES (MAIS QUE PARTIÇÕES) ==========
+
+========== [19:53:20] Escalando processador para 8 réplica(s) ==========
+ Container fabrica-processador-1  Running
+ Container fabrica-processador-2  Running
+ Container fabrica-processador-3  Running
+ Container fabrica-processador-4  Running
+ Container fabrica-processador-5  Running
+ Container fabrica-processador-6  Running
+ Container fabrica-processador-8  Creating
+ Container fabrica-processador-7  Creating
+ Container fabrica-processador-7  Created
+ Container fabrica-processador-8  Created
+ Container fabrica-processador-7  Starting
+ Container fabrica-processador-7  Started
+ Container fabrica-processador-8  Starting
+ Container fabrica-processador-8  Started
+... aguardando 20s para o rebalanço e novas estatísticas
+
+========== [19:53:41] Containers ==========
+NAME                             STATE     STATUS
+fabrica-kafka-1-1                running   Up About a minute (healthy)
+fabrica-kafka-2-1                running   Up 2 minutes (healthy)
+fabrica-kafka-3-1                running   Up 5 minutes (healthy)
+fabrica-kafka-init-1             exited    Exited (0) 4 minutes ago
+fabrica-processador-1            running   Up 44 seconds
+fabrica-processador-2            running   Up 4 minutes
+fabrica-processador-3            running   Up 4 minutes
+fabrica-processador-4            running   Up 44 seconds
+fabrica-processador-5            running   Up 44 seconds
+fabrica-processador-6            running   Up 44 seconds
+fabrica-processador-7            running   Up 20 seconds
+fabrica-processador-8            running   Up 20 seconds
+fabrica-sensor-empacotamento-1   running   Up 4 minutes
+fabrica-sensor-producao-1        running   Up 4 minutes
+fabrica-sensor-refrigeracao-1    running   Up 4 minutes
+
+========== [19:53:41] Distribuição das partições entre os processadores ==========
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+processadores   dados-sensores  4          1147            1148            1               96f00a0bfaf1-be0257a3-a204-452e-b0b6-15bc64cc96e3 /172.18.0.12    96f00a0bfaf1
+processadores   dados-sensores  3          1148            1148            0               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  5          858             861             3               2ff87803d62b-eb0f2438-f19a-4b53-8f3b-5c121bd5c092 /172.18.0.9     2ff87803d62b
+processadores   dados-sensores  0          1144            1149            5               5d5e5f56bd76-bdb03652-49a2-4913-b42c-574414673bcf /172.18.0.11    5d5e5f56bd76
+processadores   dados-sensores  1          861             862             1               3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+processadores   dados-sensores  2          1716            1724            8               f1d14369fdfd-13b94ed9-4234-428e-940d-2677eba2650d /172.18.0.5     f1d14369fdfd
+
+========== [19:53:43] Rebalanços e carga por processador desde a mudança ==========
+processador-6  | 2026-09-25 22:53:16,990 INFO [processador] ESTATISTICA processador=5d5e5f56bd76 partições=[0] processadas=41 (4.1 msg/s) alertas=1 duplicadas=0 por_particao={0: 41}
+processador-6  | 2026-09-25 22:53:23,840 INFO [processador] REBALANCO processador=5d5e5f56bd76 partições atribuidas: [] -> responsável por [0]
+processador-6  | 2026-09-25 22:53:27,091 INFO [processador] ESTATISTICA processador=5d5e5f56bd76 partições=[0] processadas=41 (4.1 msg/s) alertas=3 duplicadas=0 por_particao={0: 41}
+processador-6  | 2026-09-25 22:53:37,940 INFO [processador] ESTATISTICA processador=5d5e5f56bd76 partições=[0] processadas=42 (3.9 msg/s) alertas=0 duplicadas=0 por_particao={0: 42}
+processador-5  | 2026-09-25 22:53:16,993 INFO [processador] ESTATISTICA processador=f1d14369fdfd partições=[2] processadas=62 (6.2 msg/s) alertas=2 duplicadas=0 por_particao={2: 62}
+processador-5  | 2026-09-25 22:53:23,839 INFO [processador] REBALANCO processador=f1d14369fdfd partições atribuidas: [] -> responsável por [2]
+processador-5  | 2026-09-25 22:53:27,094 INFO [processador] ESTATISTICA processador=f1d14369fdfd partições=[2] processadas=63 (6.2 msg/s) alertas=3 duplicadas=0 por_particao={2: 63}
+processador-5  | 2026-09-25 22:53:37,935 INFO [processador] ESTATISTICA processador=f1d14369fdfd partições=[2] processadas=61 (5.6 msg/s) alertas=1 duplicadas=0 por_particao={2: 61}
+processador-7  | 2026-09-25 22:53:23,839 INFO [processador] REBALANCO processador=e3928fe4532e partições atribuidas: [] -> responsável por []
+processador-7  | 2026-09-25 22:53:30,841 INFO [processador] ESTATISTICA processador=e3928fe4532e partições=[] processadas=0 (0.0 msg/s) alertas=0 duplicadas=0 por_particao={}
+processador-1  | 2026-09-25 22:53:18,090 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[1] processadas=31 (3.1 msg/s) alertas=1 duplicadas=0 por_particao={1: 31}
+processador-1  | 2026-09-25 22:53:23,840 INFO [processador] REBALANCO processador=3b4721499e1b partições atribuidas: [] -> responsável por [1]
+processador-1  | 2026-09-25 22:53:28,940 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[1] processadas=32 (2.9 msg/s) alertas=2 duplicadas=0 por_particao={1: 32}
+processador-1  | 2026-09-25 22:53:38,943 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[1] processadas=30 (3.0 msg/s) alertas=2 duplicadas=0 por_particao={1: 30}
+processador-7  | 2026-09-25 22:53:40,843 INFO [processador] ESTATISTICA processador=e3928fe4532e partições=[] processadas=0 (0.0 msg/s) alertas=0 duplicadas=0 por_particao={}
+processador-3  | 2026-09-25 22:53:21,993 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[5] processadas=30 (3.0 msg/s) alertas=1 duplicadas=0 por_particao={5: 30}
+processador-3  | 2026-09-25 22:53:23,839 INFO [processador] REBALANCO processador=2ff87803d62b partições atribuidas: [] -> responsável por [5]
+processador-8  | 2026-09-25 22:53:23,839 INFO [processador] REBALANCO processador=db3996fd4db2 partições atribuidas: [] -> responsável por []
+processador-8  | 2026-09-25 22:53:31,050 INFO [processador] ESTATISTICA processador=db3996fd4db2 partições=[] processadas=0 (0.0 msg/s) alertas=0 duplicadas=0 por_particao={}
+processador-8  | 2026-09-25 22:53:41,052 INFO [processador] ESTATISTICA processador=db3996fd4db2 partições=[] processadas=0 (0.0 msg/s) alertas=0 duplicadas=0 por_particao={}
+processador-3  | 2026-09-25 22:53:32,988 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[5] processadas=33 (3.0 msg/s) alertas=2 duplicadas=0 por_particao={5: 33}
+processador-3  | 2026-09-25 22:53:42,989 INFO [processador] ESTATISTICA processador=2ff87803d62b partições=[5] processadas=30 (3.0 msg/s) alertas=2 duplicadas=0 por_particao={5: 30}
+processador-2  | 2026-09-25 22:53:22,936 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[3] processadas=42 (3.9 msg/s) alertas=3 duplicadas=0 por_particao={3: 42}
+processador-2  | 2026-09-25 22:53:23,839 INFO [processador] REBALANCO processador=03ebfdfe1e89 partições atribuidas: [] -> responsável por [3]
+processador-2  | 2026-09-25 22:53:32,944 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[3] processadas=40 (4.0 msg/s) alertas=1 duplicadas=0 por_particao={3: 40}
+processador-2  | 2026-09-25 22:53:43,086 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[3] processadas=42 (4.1 msg/s) alertas=2 duplicadas=0 por_particao={3: 42}
+processador-4  | 2026-09-25 22:53:17,937 INFO [processador] ESTATISTICA processador=96f00a0bfaf1 partições=[4] processadas=41 (3.8 msg/s) alertas=2 duplicadas=0 por_particao={4: 41}
+processador-4  | 2026-09-25 22:53:23,839 INFO [processador] REBALANCO processador=96f00a0bfaf1 partições atribuidas: [] -> responsável por [4]
+processador-4  | 2026-09-25 22:53:27,948 INFO [processador] ESTATISTICA processador=96f00a0bfaf1 partições=[4] processadas=40 (4.0 msg/s) alertas=0 duplicadas=0 por_particao={4: 40}
+processador-4  | 2026-09-25 22:53:37,990 INFO [processador] ESTATISTICA processador=96f00a0bfaf1 partições=[4] processadas=42 (4.2 msg/s) alertas=1 duplicadas=0 por_particao={4: 42}
+
+========== [19:53:43] 9. ELASTICIDADE: REDUÇÃO PARA 2 PROCESSADORES ==========
+
+========== [19:53:43] Escalando processador para 2 réplica(s) ==========
+ Container fabrica-processador-1  Running
+ Container fabrica-processador-2  Running
+ Container fabrica-processador-8  Stopping
+ Container fabrica-processador-4  Stopping
+ Container fabrica-processador-6  Stopping
+ Container fabrica-processador-7  Stopping
+ Container fabrica-processador-5  Stopping
+ Container fabrica-processador-3  Stopping
+ Container fabrica-processador-5  Stopped
+ Container fabrica-processador-5  Removing
+ Container fabrica-processador-5  Removed
+ Container fabrica-processador-6  Stopped
+ Container fabrica-processador-6  Removing
+ Container fabrica-processador-6  Removed
+ Container fabrica-processador-3  Stopped
+ Container fabrica-processador-3  Removing
+ Container fabrica-processador-3  Removed
+ Container fabrica-processador-4  Stopped
+ Container fabrica-processador-4  Removing
+ Container fabrica-processador-4  Removed
+ Container fabrica-processador-7  Stopped
+ Container fabrica-processador-7  Removing
+ Container fabrica-processador-7  Removed
+ Container fabrica-processador-8  Stopped
+ Container fabrica-processador-8  Removing
+ Container fabrica-processador-8  Removed
+... aguardando 20s para o rebalanço e novas estatísticas
+
+========== [19:54:05] Containers ==========
+NAME                             STATE     STATUS
+fabrica-kafka-1-1                running   Up About a minute (healthy)
+fabrica-kafka-2-1                running   Up 3 minutes (healthy)
+fabrica-kafka-3-1                running   Up 5 minutes (healthy)
+fabrica-kafka-init-1             exited    Exited (0) 5 minutes ago
+fabrica-processador-1            running   Up About a minute
+fabrica-processador-2            running   Up 5 minutes
+fabrica-sensor-empacotamento-1   running   Up 5 minutes
+fabrica-sensor-producao-1        running   Up 5 minutes
+fabrica-sensor-refrigeracao-1    running   Up 5 minutes
+
+========== [19:54:05] Distribuição das partições entre os processadores ==========
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+processadores   dados-sensores  5          936             936             0               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  3          1248            1248            0               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  2          1872            1872            0               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  4          1248            1248            0               3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+processadores   dados-sensores  1          936             936             0               3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+processadores   dados-sensores  0          1248            1248            0               3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+
+========== [19:54:07] Rebalanços e carga por processador desde a mudança ==========
+processador-1  | 2026-09-25 22:53:49,087 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[1] processadas=31 (3.1 msg/s) alertas=0 duplicadas=0 por_particao={1: 31}
+processador-1  | 2026-09-25 22:53:51,860 INFO [processador] REBALANCO processador=3b4721499e1b partições atribuidas: [0, 4] -> responsável por [0, 1, 4]
+processador-1  | 2026-09-25 22:53:59,088 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 1, 4] processadas=155 (15.5 msg/s) alertas=8 duplicadas=0 por_particao={0: 61, 1: 31, 4: 63}
+processador-2  | 2026-09-25 22:53:43,086 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[3] processadas=42 (4.1 msg/s) alertas=2 duplicadas=0 por_particao={3: 42}
+processador-2  | 2026-09-25 22:53:51,860 INFO [processador] REBALANCO processador=03ebfdfe1e89 partições atribuidas: [2, 5] -> responsável por [2, 3, 5]
+processador-2  | 2026-09-25 22:53:53,087 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[2, 3, 5] processadas=127 (12.7 msg/s) alertas=6 duplicadas=0 por_particao={2: 58, 3: 40, 5: 29}
+processador-2  | 2026-09-25 22:54:03,090 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[2, 3, 5] processadas=130 (13.0 msg/s) alertas=7 duplicadas=0 por_particao={2: 61, 3: 39, 5: 30}
+
+========== [19:54:08] 10. CARGA: 3 CONTAINERS DE SENSOR POR SETOR ==========
+
+========== [19:54:08] Escalando sensor-producao sensor-refrigeracao sensor-empacotamento para 3 réplica(s) ==========
+ Container fabrica-sensor-empacotamento-1  Running
+ Container fabrica-sensor-producao-1  Running
+ Container fabrica-sensor-empacotamento-3  Creating
+ Container fabrica-sensor-producao-3  Creating
+ Container fabrica-sensor-empacotamento-2  Creating
+ Container fabrica-sensor-producao-2  Creating
+ Container fabrica-sensor-refrigeracao-1  Running
+ Container fabrica-sensor-refrigeracao-3  Creating
+ Container fabrica-sensor-refrigeracao-2  Creating
+ Container fabrica-sensor-empacotamento-2  Created
+ Container fabrica-sensor-producao-2  Created
+ Container fabrica-sensor-producao-3  Created
+ Container fabrica-sensor-refrigeracao-3  Created
+ Container fabrica-sensor-empacotamento-3  Created
+ Container fabrica-sensor-refrigeracao-2  Created
+ Container fabrica-sensor-empacotamento-3  Starting
+ Container fabrica-sensor-refrigeracao-2  Starting
+ Container fabrica-sensor-producao-2  Starting
+ Container fabrica-sensor-empacotamento-3  Started
+ Container fabrica-sensor-empacotamento-2  Starting
+ Container fabrica-sensor-refrigeracao-2  Started
+ Container fabrica-sensor-refrigeracao-3  Starting
+ Container fabrica-sensor-producao-2  Started
+ Container fabrica-sensor-producao-3  Starting
+ Container fabrica-sensor-empacotamento-2  Started
+ Container fabrica-sensor-refrigeracao-3  Started
+ Container fabrica-sensor-producao-3  Started
+... aguardando 20s para o rebalanço e novas estatísticas
+
+========== [19:54:29] Containers ==========
+NAME                             STATE     STATUS
+fabrica-kafka-1-1                running   Up 2 minutes (healthy)
+fabrica-kafka-2-1                running   Up 3 minutes (healthy)
+fabrica-kafka-3-1                running   Up 5 minutes (healthy)
+fabrica-kafka-init-1             exited    Exited (0) 5 minutes ago
+fabrica-processador-1            running   Up About a minute
+fabrica-processador-2            running   Up 5 minutes
+fabrica-sensor-empacotamento-1   running   Up 5 minutes
+fabrica-sensor-empacotamento-2   running   Up 20 seconds
+fabrica-sensor-empacotamento-3   running   Up 20 seconds
+fabrica-sensor-producao-1        running   Up 5 minutes
+fabrica-sensor-producao-2        running   Up 20 seconds
+fabrica-sensor-producao-3        running   Up 20 seconds
+fabrica-sensor-refrigeracao-1    running   Up 5 minutes
+fabrica-sensor-refrigeracao-2    running   Up 20 seconds
+fabrica-sensor-refrigeracao-3    running   Up 20 seconds
+
+========== [19:54:29] Distribuição das partições entre os processadores ==========
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+processadores   dados-sensores  5          1107            1146            39              03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  3          1477            1528            51              03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  2          2162            2223            61              03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  4          1442            1482            40              3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+processadores   dados-sensores  1          1167            1215            48              3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+processadores   dados-sensores  0          1518            1574            56              3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+
+========== [19:54:31] Rebalanços e carga por processador desde a mudança ==========
+processador-1  | 2026-09-25 22:54:09,091 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 1, 4] processadas=119 (11.9 msg/s) alertas=3 duplicadas=0 por_particao={0: 44, 1: 33, 4: 42}
+processador-1  | 2026-09-25 22:54:19,104 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 1, 4] processadas=370 (37.0 msg/s) alertas=8 duplicadas=0 por_particao={0: 144, 1: 123, 4: 103}
+processador-2  | 2026-09-25 22:54:03,090 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[2, 3, 5] processadas=130 (13.0 msg/s) alertas=7 duplicadas=0 por_particao={2: 61, 3: 39, 5: 30}
+processador-2  | 2026-09-25 22:54:13,090 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[2, 3, 5] processadas=239 (23.9 msg/s) alertas=3 duplicadas=0 por_particao={2: 104, 3: 78, 5: 57}
+processador-1  | 2026-09-25 22:54:29,104 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 1, 4] processadas=362 (36.2 msg/s) alertas=6 duplicadas=0 por_particao={0: 141, 1: 120, 4: 101}
+processador-2  | 2026-09-25 22:54:23,106 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[2, 3, 5] processadas=362 (36.1 msg/s) alertas=10 duplicadas=0 por_particao={2: 150, 3: 122, 5: 90}
+
+========== [19:54:31] 11. RELATÓRIO DO BANCO ==========
+
+== Leituras por processador (balanceamento de carga) ==
+processador   leituras  particoes    primeira                          ultima                          
+------------  --------  -----------  --------------------------------  --------------------------------
+2ff87803d62b  2055      5,3,0,4,1,2  2026-09-25T22:48:59.640086+00:00  2026-09-25T22:53:43.990008+00:00
+3b4721499e1b  3381      0,2,1,4      2026-09-25T22:49:05.513812+00:00  2026-09-25T22:54:32.201392+00:00
+03ebfdfe1e89  3173      1,3,2,5      2026-09-25T22:49:05.515368+00:00  2026-09-25T22:54:32.204268+00:00
+5d5e5f56bd76  189       0            2026-09-25T22:52:59.781861+00:00  2026-09-25T22:53:43.937280+00:00
+96f00a0bfaf1  177       4            2026-09-25T22:53:02.787172+00:00  2026-09-25T22:53:43.936697+00:00
+f1d14369fdfd  265       2            2026-09-25T22:53:02.788351+00:00  2026-09-25T22:53:43.934545+00:00
+
+== Leituras por partição ==
+particao  leituras  maquinas  processadores_que_trataram
+--------  --------  --------  --------------------------
+0         1588      14        3                         
+1         1227      12        3                         
+2         2238      15        4                         
+3         1540      12        2                         
+4         1492      10        3                         
+5         1155      9         2                         
+
+== Últimos 15 eventos de rebalanço ==
+momento                           processador   evento      particoes  responsavel_por
+--------------------------------  ------------  ----------  ---------  ---------------
+2026-09-25T22:53:02.784660+00:00  03ebfdfe1e89  atribuidas  []         [3]            
+2026-09-25T22:53:23.839225+00:00  2ff87803d62b  atribuidas  []         [5]            
+2026-09-25T22:53:23.839403+00:00  03ebfdfe1e89  atribuidas  []         [3]            
+2026-09-25T22:53:23.839424+00:00  db3996fd4db2  atribuidas  []         []             
+2026-09-25T22:53:23.840037+00:00  f1d14369fdfd  atribuidas  []         [2]            
+2026-09-25T22:53:23.840051+00:00  e3928fe4532e  atribuidas  []         []             
+2026-09-25T22:53:23.840190+00:00  5d5e5f56bd76  atribuidas  []         [0]            
+2026-09-25T22:53:23.840262+00:00  3b4721499e1b  atribuidas  []         [1]            
+2026-09-25T22:53:23.839217+00:00  96f00a0bfaf1  atribuidas  []         [4]            
+2026-09-25T22:53:43.942047+00:00  96f00a0bfaf1  revogadas   [4]        []             
+2026-09-25T22:53:43.942116+00:00  f1d14369fdfd  revogadas   [2]        []             
+2026-09-25T22:53:43.942162+00:00  5d5e5f56bd76  revogadas   [0]        []             
+2026-09-25T22:53:43.997473+00:00  2ff87803d62b  revogadas   [5]        []             
+2026-09-25T22:53:51.860885+00:00  03ebfdfe1e89  atribuidas  [2, 5]     [2, 3, 5]      
+2026-09-25T22:53:51.860957+00:00  3b4721499e1b  atribuidas  [0, 4]     [0, 1, 4]      
+
+== Últimos 15 alertas ==
+timestamp_leitura                 maquina_id               metrica        valor   limite  particao  processador 
+--------------------------------  -----------------------  -------------  ------  ------  --------  ------------
+2026-09-25T22:54:30.929290+00:00  empacotamento-b5c981-m1  vibracao_mm_s  11.11   7.1     2         03ebfdfe1e89
+2026-09-25T22:54:30.875966+00:00  refrigeracao-d7e5f7-m1   energia_kw     56.82   45.0    4         3b4721499e1b
+2026-09-25T22:54:30.821955+00:00  empacotamento-77931d-m1  energia_kw     49.87   45.0    0         3b4721499e1b
+2026-09-25T22:54:30.096723+00:00  refrigeracao-079d4f-m3   vibracao_mm_s  12.19   7.1     3         03ebfdfe1e89
+2026-09-25T22:54:29.051458+00:00  empacotamento-f084f5-m7  vibracao_mm_s  8.22    7.1     2         03ebfdfe1e89
+2026-09-25T22:54:28.929404+00:00  empacotamento-b5c981-m4  temperatura_c  89.69   85.0    4         3b4721499e1b
+2026-09-25T22:54:28.822060+00:00  empacotamento-77931d-m4  temperatura_c  94.44   85.0    0         3b4721499e1b
+2026-09-25T22:54:28.051460+00:00  empacotamento-f084f5-m3  temperatura_c  99.09   85.0    0         3b4721499e1b
+2026-09-25T22:54:27.930782+00:00  producao-dbccff-m6       vibracao_mm_s  11.35   7.1     5         03ebfdfe1e89
+2026-09-25T22:54:25.930969+00:00  producao-dbccff-m8       energia_kw     55.56   45.0    3         03ebfdfe1e89
+2026-09-25T22:54:25.930799+00:00  producao-dbccff-m3       temperatura_c  110.24  85.0    4         3b4721499e1b
+2026-09-25T22:54:25.096512+00:00  refrigeracao-079d4f-m4   temperatura_c  99.89   85.0    4         3b4721499e1b
+2026-09-25T22:54:25.078884+00:00  refrigeracao-4594d7-m8   temperatura_c  115.05  85.0    2         03ebfdfe1e89
+2026-09-25T22:54:23.981413+00:00  producao-fd72ee-m7       vibracao_mm_s  11.99   7.1     5         03ebfdfe1e89
+2026-09-25T22:54:22.930438+00:00  producao-dbccff-m7       energia_kw     52.35   45.0    1         3b4721499e1b
+
+== Anomalias simuladas x detectadas ==
+leituras  simuladas  leituras_com_alerta  alertas
+--------  ---------  -------------------  -------
+9240      287        264                  264    
+
+========== [19:54:32] 12. VOLTA À CONFIGURAÇÃO INICIAL ==========
+
+========== [19:54:33] Escalando sensor-producao sensor-refrigeracao sensor-empacotamento para 1 réplica(s) ==========
+ Container fabrica-sensor-empacotamento-1  Running
+ Container fabrica-sensor-producao-1  Running
+ Container fabrica-sensor-empacotamento-3  Stopping
+ Container fabrica-sensor-producao-3  Stopping
+ Container fabrica-sensor-empacotamento-2  Stopping
+ Container fabrica-sensor-refrigeracao-1  Running
+ Container fabrica-sensor-producao-2  Stopping
+ Container fabrica-sensor-refrigeracao-3  Stopping
+ Container fabrica-sensor-refrigeracao-2  Stopping
+ Container fabrica-sensor-empacotamento-3  Stopped
+ Container fabrica-sensor-empacotamento-3  Removing
+ Container fabrica-sensor-empacotamento-3  Removed
+ Container fabrica-sensor-refrigeracao-3  Stopped
+ Container fabrica-sensor-refrigeracao-3  Removing
+ Container fabrica-sensor-refrigeracao-3  Removed
+ Container fabrica-sensor-producao-2  Stopped
+ Container fabrica-sensor-producao-2  Removing
+ Container fabrica-sensor-producao-2  Removed
+ Container fabrica-sensor-refrigeracao-2  Stopped
+ Container fabrica-sensor-refrigeracao-2  Removing
+ Container fabrica-sensor-refrigeracao-2  Removed
+ Container fabrica-sensor-empacotamento-2  Stopped
+ Container fabrica-sensor-empacotamento-2  Removing
+ Container fabrica-sensor-empacotamento-2  Removed
+ Container fabrica-sensor-producao-3  Stopped
+ Container fabrica-sensor-producao-3  Removing
+ Container fabrica-sensor-producao-3  Removed
+... aguardando 20s para o rebalanço e novas estatísticas
+
+========== [19:54:55] Containers ==========
+NAME                             STATE     STATUS
+fabrica-kafka-1-1                running   Up 2 minutes (healthy)
+fabrica-kafka-2-1                running   Up 4 minutes (healthy)
+fabrica-kafka-3-1                running   Up 6 minutes (healthy)
+fabrica-kafka-init-1             exited    Exited (0) 6 minutes ago
+fabrica-processador-1            running   Up About a minute
+fabrica-processador-2            running   Up 5 minutes
+fabrica-sensor-empacotamento-1   running   Up 6 minutes
+fabrica-sensor-producao-1        running   Up 6 minutes
+fabrica-sensor-refrigeracao-1    running   Up 6 minutes
+
+========== [19:54:55] Distribuição das partições entre os processadores ==========
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+processadores   dados-sensores  5          1236            1236            0               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  3          1648            1648            0               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  2          2397            2397            0               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  4          1578            1598            20              3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+processadores   dados-sensores  1          1296            1311            15              3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+processadores   dados-sensores  0          1678            1698            20              3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+
+========== [19:54:57] Rebalanços e carga por processador desde a mudança ==========
+processador-2  | 2026-09-25 22:54:33,198 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[2, 3, 5] processadas=363 (36.0 msg/s) alertas=8 duplicadas=0 por_particao={2: 150, 3: 121, 5: 92}
+processador-2  | 2026-09-25 22:54:43,939 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[2, 3, 5] processadas=134 (12.5 msg/s) alertas=3 duplicadas=0 por_particao={2: 61, 3: 42, 5: 31}
+processador-1  | 2026-09-25 22:54:29,104 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 1, 4] processadas=362 (36.2 msg/s) alertas=6 duplicadas=0 por_particao={0: 141, 1: 120, 4: 101}
+processador-1  | 2026-09-25 22:54:39,939 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 1, 4] processadas=217 (20.0 msg/s) alertas=5 duplicadas=0 por_particao={0: 83, 1: 69, 4: 65}
+processador-1  | 2026-09-25 22:54:49,941 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 1, 4] processadas=112 (11.2 msg/s) alertas=2 duplicadas=0 por_particao={0: 41, 1: 30, 4: 41}
+processador-2  | 2026-09-25 22:54:53,939 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[2, 3, 5] processadas=130 (13.0 msg/s) alertas=4 duplicadas=0 por_particao={2: 61, 3: 39, 5: 30}
+
+========== [19:54:57] Escalando processador para 3 réplica(s) ==========
+ Container fabrica-processador-1  Running
+ Container fabrica-processador-2  Running
+ Container fabrica-processador-3  Creating
+ Container fabrica-processador-3  Created
+ Container fabrica-processador-3  Starting
+ Container fabrica-processador-3  Started
+... aguardando 20s para o rebalanço e novas estatísticas
+
+========== [19:55:18] Containers ==========
+NAME                             STATE     STATUS
+fabrica-kafka-1-1                running   Up 3 minutes (healthy)
+fabrica-kafka-2-1                running   Up 4 minutes (healthy)
+fabrica-kafka-3-1                running   Up 6 minutes (healthy)
+fabrica-kafka-init-1             exited    Exited (0) 6 minutes ago
+fabrica-processador-1            running   Up 2 minutes
+fabrica-processador-2            running   Up 6 minutes
+fabrica-processador-3            running   Up 20 seconds
+fabrica-sensor-empacotamento-1   running   Up 6 minutes
+fabrica-sensor-producao-1        running   Up 6 minutes
+fabrica-sensor-refrigeracao-1    running   Up 6 minutes
+
+========== [19:55:18] Distribuição das partições entre os processadores ==========
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+processadores   dados-sensores  0          1782            1790            8               6bf78c300651-3915e741-c2ae-4805-b433-bc160628eddb /172.18.0.5     6bf78c300651
+processadores   dados-sensores  2          2523            2535            12              6bf78c300651-3915e741-c2ae-4805-b433-bc160628eddb /172.18.0.5     6bf78c300651
+processadores   dados-sensores  5          1296            1305            9               03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  3          1728            1740            12              03ebfdfe1e89-ad1b1895-8b2b-4783-9a41-9562d7b11f18 /172.18.0.10    03ebfdfe1e89
+processadores   dados-sensores  4          1678            1690            12              3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+processadores   dados-sensores  1          1371            1380            9               3b4721499e1b-cfc805ed-68d0-41f1-8004-f561831b121a /172.18.0.13    3b4721499e1b
+
+========== [19:55:20] Rebalanços e carga por processador desde a mudança ==========
+processador-3  | 2026-09-25 22:55:00,930 INFO [processador] REBALANCO processador=6bf78c300651 partições atribuidas: [] -> responsável por []
+processador-3  | 2026-09-25 22:55:03,942 INFO [processador] REBALANCO processador=6bf78c300651 partições atribuidas: [0, 2] -> responsável por [0, 2]
+processador-3  | 2026-09-25 22:55:08,939 INFO [processador] ESTATISTICA processador=6bf78c300651 partições=[0, 2] processadas=81 (7.7 msg/s) alertas=1 duplicadas=0 por_particao={0: 33, 2: 48}
+processador-3  | 2026-09-25 22:55:18,939 INFO [processador] ESTATISTICA processador=6bf78c300651 partições=[0, 2] processadas=100 (10.0 msg/s) alertas=1 duplicadas=0 por_particao={0: 39, 2: 61}
+processador-1  | 2026-09-25 22:54:59,992 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[0, 1, 4] processadas=112 (11.1 msg/s) alertas=0 duplicadas=0 por_particao={0: 41, 1: 31, 4: 40}
+processador-1  | 2026-09-25 22:55:00,939 INFO [processador] REBALANCO processador=3b4721499e1b partições revogadas: [0] -> responsável por [1, 4]
+processador-1  | 2026-09-25 22:55:00,947 INFO [processador] REBALANCO processador=3b4721499e1b partições atribuidas: [] -> responsável por [1, 4]
+processador-1  | 2026-09-25 22:55:03,942 INFO [processador] REBALANCO processador=3b4721499e1b partições atribuidas: [] -> responsável por [1, 4]
+processador-1  | 2026-09-25 22:55:10,087 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[1, 4] processadas=74 (7.3 msg/s) alertas=3 duplicadas=0 por_particao={0: 2, 1: 31, 4: 41}
+processador-1  | 2026-09-25 22:55:20,089 INFO [processador] ESTATISTICA processador=3b4721499e1b partições=[1, 4] processadas=70 (7.0 msg/s) alertas=2 duplicadas=0 por_particao={1: 29, 4: 41}
+processador-2  | 2026-09-25 22:54:53,939 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[2, 3, 5] processadas=130 (13.0 msg/s) alertas=4 duplicadas=0 por_particao={2: 61, 3: 39, 5: 30}
+processador-2  | 2026-09-25 22:55:00,939 INFO [processador] REBALANCO processador=03ebfdfe1e89 partições revogadas: [2] -> responsável por [3, 5]
+processador-2  | 2026-09-25 22:55:00,947 INFO [processador] REBALANCO processador=03ebfdfe1e89 partições atribuidas: [] -> responsável por [3, 5]
+processador-2  | 2026-09-25 22:55:03,941 INFO [processador] REBALANCO processador=03ebfdfe1e89 partições atribuidas: [] -> responsável por [3, 5]
+processador-2  | 2026-09-25 22:55:03,991 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[3, 5] processadas=114 (11.3 msg/s) alertas=2 duplicadas=0 por_particao={2: 41, 3: 42, 5: 31}
+processador-2  | 2026-09-25 22:55:13,995 INFO [processador] ESTATISTICA processador=03ebfdfe1e89 partições=[3, 5] processadas=70 (7.0 msg/s) alertas=1 duplicadas=0 por_particao={3: 40, 5: 30}
+
+Demonstração concluída. Saída completa em logs/demo-20260925-194937.log

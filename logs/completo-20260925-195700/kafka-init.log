@@ -1,0 +1,8 @@
+kafka-init-1  | 2026-09-25T22:48:52.280279913Z Created topic dados-sensores.
+kafka-init-1  | 2026-09-25T22:48:54.748416935Z Topic: dados-sensores	TopicId: bpNag2Q4SrSHzixJwrCS8Q	PartitionCount: 6	ReplicationFactor: 3	Configs: min.insync.replicas=2
+kafka-init-1  | 2026-09-25T22:48:54.752018941Z 	Topic: dados-sensores	Partition: 0	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1	Elr: 	LastKnownElr: 
+kafka-init-1  | 2026-09-25T22:48:54.752112685Z 	Topic: dados-sensores	Partition: 1	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+kafka-init-1  | 2026-09-25T22:48:54.752359770Z 	Topic: dados-sensores	Partition: 2	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+kafka-init-1  | 2026-09-25T22:48:54.752605013Z 	Topic: dados-sensores	Partition: 3	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+kafka-init-1  | 2026-09-25T22:48:54.752738319Z 	Topic: dados-sensores	Partition: 4	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+kafka-init-1  | 2026-09-25T22:48:54.753747023Z 	Topic: dados-sensores	Partition: 5	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1	Elr: 	LastKnownElr: 
